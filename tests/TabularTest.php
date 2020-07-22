@@ -7,6 +7,7 @@ use function ptk\tabular\get_col_range;
 use function ptk\tabular\get_cols;
 use function ptk\tabular\get_line_range;
 use function ptk\tabular\get_lines;
+use function ptk\tabular\merge_cols;
 use function ptk\tabular\merge_lines;
 
 /**
@@ -52,9 +53,18 @@ class TabularTest extends TestCase
         ]
     ];
     protected array $sample3 = [
-        ['sex' => 'm'],
-        ['sex' => 'f'],
-        ['sex' => 'm']
+        [
+            'sex' => 'm',
+            'adult' => true
+        ],
+        [
+            'sex' => 'f',
+            'adult' => true
+        ],
+        [
+            'sex' => 'm',
+            'adult' => false
+        ]
     ];
 
     public function testCheckStructure()
@@ -326,26 +336,60 @@ class TabularTest extends TestCase
             ]
         ]);
     }
-    
+
     public function testMergeLinesFailNameCols()
     {
         $this->expectException(Exception::class);
         merge_lines($this->sample1, [
             [
-            'cod' => 1,
-            'name' => 'Matt',
-            'age' => 20
-        ],
-        [
-            'cod' => 2,
-            'name' => 'Anne',
-            'age' => 25
-        ],
-        [
-            'cod' => 3,
-            'name' => 'Joe',
-            'age' => 30
-        ]
+                'cod' => 1,
+                'name' => 'Matt',
+                'age' => 20
+            ],
+            [
+                'cod' => 2,
+                'name' => 'Anne',
+                'age' => 25
+            ],
+            [
+                'cod' => 3,
+                'name' => 'Joe',
+                'age' => 30
+            ]
         ]);
+    }
+
+    public function testMergeCols()
+    {
+        $expected = [
+            [
+                'id' => 1,
+                'name' => 'John',
+                'age' => 39,
+                'sex' => 'm',
+                'adult' => true
+            ],
+            [
+                'id' => 2,
+                'name' => 'Mary',
+                'age' => 37,
+                'sex' => 'f',
+                'adult' => true
+            ],
+            [
+                'id' => 3,
+                'name' => 'Paul',
+                'age' => 12,
+                'sex' => 'm',
+                'adult' => false
+            ]
+        ];
+        $this->assertEquals($expected, merge_cols($this->sample1, $this->sample3));
+    }
+    
+    public function testMergeColsFailNumLines()
+    {
+        $this->expectException(Exception::class);
+        merge_cols($this->sample1, []);
     }
 }

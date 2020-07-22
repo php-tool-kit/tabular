@@ -38,3 +38,18 @@ $sample_data2 = [
         'age' => 30
     ]
 ];
+
+$sample_data3 = [
+    [
+        'sex' => 'm',
+        'adult' => true
+    ],
+    [
+        'sex' => 'f',
+        'adult' => true
+    ],
+    [
+        'sex' => 'm',
+        'adult' => false
+    ]
+];

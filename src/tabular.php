@@ -323,12 +323,54 @@ function merge_lines(array ...$datas): array
     return $result;
 }
 
-/*
+/**
+ * Mescla pelas colunas vários data frames.
+ *
+ * É necessários que todos tenham a mesma quantidade de linhas.
+ *
+ * @param array<array> $datas
+ * @return array<array>
+ * @throws Exception
+ */
 function merge_cols(array ...$datas): array
 {
-
+    $result = [];
+    
+    $base_numlines = null;
+    
+    foreach ($datas as $dataindex => $data) {
+        if (is_null($base_numlines)) {
+            $base_numlines = count($data);
+        }
+        
+        //testa se o número de linhas é compatível
+        $numlines = count($data);
+        if ($numlines !== $base_numlines) {
+            throw new Exception(
+                //@codeCoverageIgnoreStart
+                sprintf(
+                    'O conjunto de dados %d tem %d linhas, porém eram esperadas %d linhas',
+                    $dataindex,
+                    $numlines,
+                    $base_numlines
+                )
+                //@codeCoverageIgnoreEnd
+            );
+        }
+        
+        foreach ($data as $lineindex => $cols) {
+            if (!key_exists($lineindex, $result)) {
+                $result[$lineindex] = $cols;
+                continue;
+            }
+            $result[$lineindex] = array_merge($result[$lineindex], $cols);
+        }
+    }
+    
+    return $result;
 }
 
+/*
 function del_lines(array $data, int ...$lines): array
 {
 
