@@ -1,5 +1,5 @@
 {
-    "name": "php-tool-kit/tatular",
+    "name": "php-tool-kit/tabular",
     "description": "Ferramentas para trabalhar com dados tabulares, normalmente armazenados em array, complementando as funções para arrays do PHP.",
     "type": "library",
     "license": "MIT",
