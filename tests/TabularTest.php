@@ -3,6 +3,7 @@
 use PHPUnit\Framework\TestCase;
 use function ptk\tabular\check_structure;
 use function ptk\tabular\col_names;
+use function ptk\tabular\get_cols;
 
 /**
  * Testes para ptk\tabular
@@ -34,7 +35,7 @@ class TabularTest extends TestCase
     {
         $this->assertTrue(check_structure($this->sample1));
     }
-    
+
     public function testCheckStructureFailNumOfColumns()
     {
         $sample = $this->sample1;
@@ -43,7 +44,7 @@ class TabularTest extends TestCase
         $this->expectException(Exception::class);
         $this->assertTrue(check_structure($sample));
     }
-    
+
     public function testCheckStructureFailTypes()
     {
         $sample = $this->sample1;
@@ -52,7 +53,7 @@ class TabularTest extends TestCase
         $this->expectException(Exception::class);
         $this->assertTrue(check_structure($sample));
     }
-    
+
     public function testCheckStructureFailNameOfColumns()
     {
         $sample = $this->sample1;
@@ -62,9 +63,50 @@ class TabularTest extends TestCase
         $this->expectException(Exception::class);
         $this->assertTrue(check_structure($sample));
     }
-    
+
     public function testColNames()
     {
         $this->assertEquals(array_keys($this->sample1[0]), col_names($this->sample1));
+    }
+
+    public function testGetCols()
+    {
+        $expected = [
+            [
+                'name' => 'John',
+                'age' => 39
+            ],
+            [
+                'name' => 'Mary',
+                'age' => 37
+            ],
+            [
+                'name' => 'Paul',
+                'age' => 12
+            ]
+        ];
+        $this->assertEquals($expected, get_cols($this->sample1, 'name', 'age'));
+    }
+
+    public function testGetOneCol()
+    {
+        $expected = [
+            [
+                'name' => 'John'
+            ],
+            [
+                'name' => 'Mary'
+            ],
+            [
+                'name' => 'Paul'
+            ]
+        ];
+        $this->assertEquals($expected, get_cols($this->sample1, 'name'));
+    }
+    
+    public function testGetColFail()
+    {
+        $this->expectException(Exception::class);
+        get_cols($this->sample1, 'unknow');
     }
 }

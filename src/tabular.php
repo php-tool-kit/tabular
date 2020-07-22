@@ -100,3 +100,89 @@ function col_names(array $data): array
     $first_line_key = array_key_first($data);
     return array_keys($data[$first_line_key]);
 }
+
+/**
+ * Retorna os dados de todas as linhas das colunas selecionadas.
+ *
+ * @param array<array> $data
+ * @param string $colnames
+ * @return array<array>
+ * @throws Exception
+ */
+function get_cols(array $data, string ...$colnames): array
+{
+    $result = [];
+    $base_colnames = col_names($data);
+    
+    foreach ($colnames as $colname) {
+        if (!array_search($colname, $base_colnames)) {
+            throw new Exception(
+                //@codeCoverageIgnoreStart
+                sprintf(
+                    'A coluna %s não foi encontrada entre as colunas %s',
+                    $colname,
+                    join(', ', $base_colnames)
+                )
+                //@codeCoverageIgnoreEnd
+            );
+        }
+        
+        foreach ($data as $line => $cols) {
+            $result[$line][$colname] = $cols[$colname];
+        }
+    }
+    
+    return $result;
+}
+/*
+function get_col_range(array $data, string $first = '', string $last = ''): array
+{
+
+}
+
+function get_lines(array $data, int ...$lines): array
+{
+
+}
+
+function get_line_range(array $data, int $first = 0, int $last = 0): array
+{
+
+}
+
+function merge_lines(array ...$datas): array
+{
+
+}
+
+function merge_cols(array ...$datas): array
+{
+
+}
+
+function del_lines(array $data, int ...$lines): array
+{
+
+}
+
+function del_cols(array $data, string ...$colnames): array
+{
+
+}
+
+function sort(array $data, array $order): array
+{
+
+}
+
+function filter(array $data, callable $filter): array
+{
+
+}
+
+function seek(array $data, array $regex): array
+{
+
+}
+
+*/
