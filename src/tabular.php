@@ -474,7 +474,7 @@ function sort(array $data, array $order): array
     $args[] = &$result;
 
     call_user_func_array('array_multisort', $args);
-    
+
     $return = array_pop($args);
     //@codeCoverageIgnoreStart
     if (!is_array($return)) {
@@ -483,15 +483,29 @@ function sort(array $data, array $order): array
     //@codeCoverageIgnoreEnd
     return $return;
 }
-/*
-function filter(array $data, callable $filter): array
+
+/**
+ * Filtra as linhas do data frame de acordo com uma função de callback.
+ *
+ * @param array<array> $data
+ * @param callable $filter A função deve receber um array com as colunas e seus valores e retornar true se a linha
+ *  será incluída no resultado ou false, se não.
+ * @param bool $reindex Opcional. Se true (o padrão), as linhas são reindexadas.
+ * @return array<array>
+ */
+function filter(array $data, callable $filter, bool $reindex = true): array
 {
+    $result = [];
 
+    foreach ($data as $line => $cols) {
+        if ($filter($cols) === true) {
+            if ($reindex) {
+                $result[] = $cols;
+                continue;
+            }
+            $result[$line] = $cols;
+        }
+    }
+
+    return $result;
 }
-
-function seek(array $data, array $regex): array
-{
-
-}
-
-*/

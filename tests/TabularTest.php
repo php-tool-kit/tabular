@@ -5,6 +5,7 @@ use function ptk\tabular\check_structure;
 use function ptk\tabular\col_names;
 use function ptk\tabular\del_cols;
 use function ptk\tabular\del_lines;
+use function ptk\tabular\filter;
 use function ptk\tabular\get_col_range;
 use function ptk\tabular\get_cols;
 use function ptk\tabular\get_line_range;
@@ -470,10 +471,53 @@ class TabularTest extends TestCase
             'id' => SORT_DESC
         ]));
     }
-    
+
     public function testSortFail()
     {
         $this->expectException(Exception::class);
         sort($this->sample1, ['unknow' => SORT_ASC]);
+    }
+
+    public function testFilter()
+    {
+        $filter = function(array $line): bool {
+            if ($line['age'] > 20) {
+                return true;
+            }
+            return false;
+        };
+
+        $expected = [
+            [
+                'id' => 1,
+                'name' => 'John',
+                'age' => 39
+            ],
+            [
+                'id' => 2,
+                'name' => 'Mary',
+                'age' => 37
+            ]
+        ];
+        $this->assertEquals($expected, filter($this->sample1, $filter));
+    }
+
+    public function testFilterNoReindex()
+    {
+        $filter = function(array $line): bool {
+            if ($line['id'] === 2) {
+                return true;
+            }
+            return false;
+        };
+
+        $expected = [
+            1 => [
+                'id' => 2,
+                'name' => 'Mary',
+                'age' => 37
+            ]
+        ];
+        $this->assertEquals($expected, filter($this->sample1, $filter, false));
     }
 }
