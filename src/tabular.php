@@ -174,7 +174,7 @@ function get_col_range(array $data, string $first = '', string $last = ''): arra
             //@codeCoverageIgnoreEnd
         );
     }
-    
+
     if ($keylast === false) {
         throw new Exception(
             //@codeCoverageIgnoreStart
@@ -186,7 +186,7 @@ function get_col_range(array $data, string $first = '', string $last = ''): arra
             //@codeCoverageIgnoreEnd
         );
     }
-    
+
     //testa se o índice da primeira coluna é maior que o da última
     if ($keyfirst > $keylast) {
         throw new Exception(
@@ -261,7 +261,7 @@ function get_line_range(array $data, int $first = 0, int $last = 0): array
     if ($last === 0) {
         $last = array_key_last($data);
     }
-    
+
     //testa se first é menor que last
     if ($first > $last) {
         throw new Exception("A primeira linha $first não pode ser maior que a última $last.");
@@ -301,7 +301,7 @@ function merge_lines(array ...$datas): array
         if ($base_colnames === []) {
             $base_colnames = col_names($data);
         }
-        
+
         //testa se a quantidade e os nomes de colunas são os mesmos
         $colnames = col_names($data);
         if ($colnames !== $base_colnames) {
@@ -316,10 +316,10 @@ function merge_lines(array ...$datas): array
                 //@codeCoverageIgnoreEnd
             );
         }
-        
+
         $result = array_merge($result, $data);
     }
-    
+
     return $result;
 }
 
@@ -335,14 +335,14 @@ function merge_lines(array ...$datas): array
 function merge_cols(array ...$datas): array
 {
     $result = [];
-    
+
     $base_numlines = null;
-    
+
     foreach ($datas as $dataindex => $data) {
         if (is_null($base_numlines)) {
             $base_numlines = count($data);
         }
-        
+
         //testa se o número de linhas é compatível
         $numlines = count($data);
         if ($numlines !== $base_numlines) {
@@ -357,7 +357,7 @@ function merge_cols(array ...$datas): array
                 //@codeCoverageIgnoreEnd
             );
         }
-        
+
         foreach ($data as $lineindex => $cols) {
             if (!key_exists($lineindex, $result)) {
                 $result[$lineindex] = $cols;
@@ -366,7 +366,7 @@ function merge_cols(array ...$datas): array
             $result[$lineindex] = array_merge($result[$lineindex], $cols);
         }
     }
-    
+
     return $result;
 }
 
@@ -382,18 +382,18 @@ function merge_cols(array ...$datas): array
 function del_lines(array $data, int ...$lines): array
 {
     $result = $data;
-    
+
     foreach ($lines as $index) {
         if (!key_exists($index, $data)) {
             if (!key_exists($index, $data)) {
                 throw new Exception("A linha $index não foi encontrada.");
             }
         }
-        
+
         unset($result[$index]);
     }
-    
-    return array_merge($result, []);//merge necessário para resetar as chaves das linhas
+
+    return array_merge($result, []); //merge necessário para resetar as chaves das linhas
 }
 
 /**
@@ -407,7 +407,7 @@ function del_cols(array $data, string ...$colnames): array
 {
     $result = $data;
     $base_colnames = col_names($data);
-    
+
     foreach ($colnames as $name) {
         if (array_search($name, $base_colnames) === false) {
             throw new Exception(
@@ -420,21 +420,70 @@ function del_cols(array $data, string ...$colnames): array
                 //@codeCoverageIgnoreEnd
             );
         }
-        
+
         foreach ($data as $line => $cols) {
             unset($result[$line][$name]);
         }
     }
-    
+
     return $result;
 }
 
-/*
+/**
+ * Ordena o data frame usando a função array_multisort() do PHP.
+ *
+ * @param array<array> $data
+ * @param array<array> $order Configuração de ordenação, onde a chave de cada elemento do array é o nome
+ *  da coluna e o valor é SORT_ASC ou SORT_DESC.
+ * @return array<array>
+ * @throws Exception
+ * @link https://www.php.net/manual/pt_BR/function.array-multisort.php array_multisort()
+ * @link https://www.php.net/manual/pt_BR/function.array-multisort.php#100534 Comentário de jimpoz@jimpoz.com
+ */
 function sort(array $data, array $order): array
 {
+    $result = $data;
+    $args = [];
+    $base_colnames = col_names($data);
+    //verifica se os campos existem
+    foreach ($order as $colname => $ordenation) {
+        if (array_search($colname, $base_colnames) === false) {
+            throw new Exception(
+                //@codeCoverageIgnoreStart
+                sprintf(
+                    'A coluna %s não foi encontrada entre as colunas %s',
+                    $colname,
+                    join(', ', $base_colnames)
+                )
+                //@codeCoverageIgnoreEnd
+            );
+        }
+    }
 
+    //prepara para a ordenação
+    // inspirado em https://www.php.net/manual/pt_BR/function.array-multisort.php#100534
+    foreach ($order as $colname => $ordenation) {
+        $tmp = [];
+        foreach ($data as $key => $row) {
+            $tmp[$key] = $row[$colname];
+        }
+        $args[] = $tmp;
+        $args[] = $ordenation;
+    }
+
+    $args[] = &$result;
+
+    call_user_func_array('array_multisort', $args);
+    
+    $return = array_pop($args);
+    //@codeCoverageIgnoreStart
+    if (!is_array($return)) {
+        throw new Exception("Erro desconhecido ao tentar ordenar.");
+    }
+    //@codeCoverageIgnoreEnd
+    return $return;
 }
-
+/*
 function filter(array $data, callable $filter): array
 {
 

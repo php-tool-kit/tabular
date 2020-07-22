@@ -11,6 +11,7 @@ use function ptk\tabular\get_line_range;
 use function ptk\tabular\get_lines;
 use function ptk\tabular\merge_cols;
 use function ptk\tabular\merge_lines;
+use function ptk\tabular\sort;
 
 /**
  * Testes para ptk\tabular
@@ -428,10 +429,51 @@ class TabularTest extends TestCase
         ];
         $this->assertEquals($expected, del_cols($this->sample1, 'id', 'age'));
     }
-    
+
     public function testDelColsFail()
     {
         $this->expectException(Exception::class);
         del_cols($this->sample1, 'unknow');
+    }
+
+    public function testSort()
+    {
+        $expected = array(
+            0 =>
+            array(
+                'id' => 2,
+                'name' => 'Mary',
+                'age' => 37,
+                'sex' => 'f',
+                'adult' => true,
+            ),
+            1 =>
+            array(
+                'id' => 3,
+                'name' => 'Paul',
+                'age' => 12,
+                'sex' => 'm',
+                'adult' => false,
+            ),
+            2 =>
+            array(
+                'id' => 1,
+                'name' => 'John',
+                'age' => 39,
+                'sex' => 'm',
+                'adult' => true,
+            ),
+        );
+        $data = merge_cols($this->sample1, $this->sample3);
+        $this->assertEquals($expected, sort($data, [
+            'sex' => SORT_ASC,
+            'id' => SORT_DESC
+        ]));
+    }
+    
+    public function testSortFail()
+    {
+        $this->expectException(Exception::class);
+        sort($this->sample1, ['unknow' => SORT_ASC]);
     }
 }
