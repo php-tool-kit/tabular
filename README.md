@@ -37,4 +37,14 @@ Adotei a estrutura *linha->coluna* em detrimento da estrutura *coluna->linha* po
 
 ## Aviso importante
 
-Não espere desempenho nem efici~encia na alocação de recursos. Isso não é prioridade, pelo menos por enquanto.
+Não espere desempenho nem eficiência na alocação de recursos. Isso não é prioridade, pelo menos por enquanto.
+
+## Exemplos
+
+Você encontrará exemplos no diretório `examples`. Para cada função há um arquivo de exemplo de mesmo nome.
+
+Tenha em mente que os exemplos foram projetados para serem executados via linha de comando a partir do diretório raiz do projeto. Então tente:
+
+```sh
+php examples/col_names.php
+```
