@@ -150,12 +150,12 @@ function get_col_range(array $data, string $first = '', string $last = ''): arra
 {
     $result = [];
     $base_colnames = col_names($data);
-    
+
     // configura os valores padrão
     if ($first === '') {
         $first = $base_colnames[array_key_first($base_colnames)];
     }
-    
+
     if ($last === '') {
         $last = $base_colnames[array_key_last($base_colnames)];
     }
@@ -187,15 +187,30 @@ function get_col_range(array $data, string $first = '', string $last = ''): arra
         );
     }
     
+    //testa se o índice da primeira coluna é maior que o da última
+    if ($keyfirst > $keylast) {
+        throw new Exception(
+            //@codeCoverageIgnoreStart
+            sprintf(
+                'A primeira coluna %s tem índice %d maior que o da última coluna %s que tem índice %d',
+                $first,
+                $keyfirst,
+                $last,
+                $keylast
+            )
+            //@codeCoverageIgnoreEnd
+        );
+    }
+
     // pega a lista de colunas do intervalo
     $listcols = [];
     for ($i = $keyfirst; $i <= $keylast; $i++) {
         $listcols[] = $base_colnames[$i];
     }
-    
+
     //monta o resultado
     $result = get_cols($data, ...$listcols);
-    
+
     return $result;
 }
 
@@ -212,23 +227,62 @@ function get_col_range(array $data, string $first = '', string $last = ''): arra
 function get_lines(array $data, int ...$lines): array
 {
     $result = [];
-    
+
     foreach ($lines as $index) {
         if (!key_exists($index, $data)) {
             throw new Exception("A linha $index não foi encontrada.");
         }
-        
+
         $result[] = $data[$index];
     }
+
+    return $result;
+}
+
+/**
+ * Fornece todas as colunas das linhas entre $first e $last.
+ *
+ * As chaves das linhas serão reindexadas.
+ *
+ * @param array<array> $data
+ * @param int $first Se omitido, considera a linha 0
+ * @param int $last Se omitido, considera a última linha disponível.
+ * @return array<array>
+ * @throws Exception
+ */
+function get_line_range(array $data, int $first = 0, int $last = 0): array
+{
+    $result = [];
+
+    //configura valores iniciais padrão
+    if ($first === 0) {
+        $first = array_key_first($data);
+    }
+    if ($last === 0) {
+        $last = array_key_last($data);
+    }
     
+    //testa se first é menor que last
+    if ($first > $last) {
+        throw new Exception("A primeira linha $first não pode ser maior que a última $last.");
+    }
+
+    //testa se first e last existem
+    if (!key_exists((int) $first, $data)) {
+        throw new Exception("A primeira linha $first não foi encontrada.");
+    }
+    if (!key_exists((int) $last, $data)) {
+        throw new Exception("A última linha $last não foi encontrada.");
+    }
+
+    //monta o resultado
+    $range = range((int) $first, (int) $last, 1);
+
+    $result = get_lines($data, ...$range);
+
     return $result;
 }
 /*
-function get_line_range(array $data, int $first = 0, int $last = 0): array
-{
-
-}
-
 function merge_lines(array ...$datas): array
 {
 

@@ -5,6 +5,7 @@ use function ptk\tabular\check_structure;
 use function ptk\tabular\col_names;
 use function ptk\tabular\get_col_range;
 use function ptk\tabular\get_cols;
+use function ptk\tabular\get_line_range;
 use function ptk\tabular\get_lines;
 
 /**
@@ -180,6 +181,12 @@ class TabularTest extends TestCase
         $this->expectException(Exception::class);
         get_col_range($this->sample1, 'id', 'unknow');
     }
+    
+    public function testGetColRangeFailFirstGreatThanLast()
+    {
+        $this->expectException(Exception::class);
+        get_col_range($this->sample1, 'age', 'name');
+    }
 
     public function testGetLines()
     {
@@ -195,12 +202,81 @@ class TabularTest extends TestCase
                 'age' => 12
             ]
         ];
-        $this->assertEquals($expected, get_lines($this->sample1, 0,2));
+        $this->assertEquals($expected, get_lines($this->sample1, 0, 2));
     }
-    
+
     public function testGetLinesFail()
     {
         $this->expectException(Exception::class);
         get_lines($this->sample1, 3);
+    }
+
+    public function testGetLineRange()
+    {
+        $expected = [
+            [
+                'id' => 2,
+                'name' => 'Mary',
+                'age' => 37
+            ],
+            [
+                'id' => 3,
+                'name' => 'Paul',
+                'age' => 12
+            ]
+        ];
+        $this->assertEquals($expected, get_line_range($this->sample1, 1, 2));
+    }
+
+    public function testGetLineRangeFirstOmitted()
+    {
+        $expected = [
+            [
+                'id' => 1,
+                'name' => 'John',
+                'age' => 39
+            ],
+            [
+                'id' => 2,
+                'name' => 'Mary',
+                'age' => 37
+            ]
+        ];
+        $this->assertEquals($expected, get_line_range($this->sample1, 0, 1));
+    }
+    
+    public function testGetLineRangeLastOmitted()
+    {
+        $expected = [
+            [
+                'id' => 2,
+                'name' => 'Mary',
+                'age' => 37
+            ],
+            [
+                'id' => 3,
+                'name' => 'Paul',
+                'age' => 12
+            ]
+        ];
+        $this->assertEquals($expected, get_line_range($this->sample1, 1, 0));
+    }
+    
+    public function testGetLinesFailOnFirst()
+    {
+        $this->expectException(Exception::class);
+        get_line_range($this->sample1, 4, 6);
+    }
+    
+    public function testGetLinesFailOnLast()
+    {
+        $this->expectException(Exception::class);
+        get_line_range($this->sample1, 0, 4);
+    }
+    
+    public function testGetLinesFailFirstGreaterThanLast()
+    {
+        $this->expectException(Exception::class);
+        get_line_range($this->sample1, 2, 1);
     }
 }
