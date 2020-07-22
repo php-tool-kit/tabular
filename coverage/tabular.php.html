@@ -53,7 +53,7 @@
        </div>
 </td>
        <td class="success small"><div align="right">100.00%</div></td>
-       <td class="success small"><div align="right">8&nbsp;/&nbsp;8</div></td>
+       <td class="success small"><div align="right">9&nbsp;/&nbsp;9</div></td>
        <td class="success small"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></td>
        <td class="success big">       <div class="progress">
          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" style="width: 100.00%">
@@ -62,7 +62,7 @@
        </div>
 </td>
        <td class="success small"><div align="right">100.00%</div></td>
-       <td class="success small"><div align="right">90&nbsp;/&nbsp;90</div></td>
+       <td class="success small"><div align="right">97&nbsp;/&nbsp;97</div></td>
       </tr>
 
       <tr>
@@ -231,6 +231,27 @@
 </td>
        <td class="success small"><div align="right">100.00%</div></td>
        <td class="success small"><div align="right">14&nbsp;/&nbsp;14</div></td>
+      </tr>
+
+      <tr>
+       <td class="success" colspan="4"><a href="#382"><abbr title="del_lines(array $data, int ...$lines): array">ptk\tabular\del_lines</abbr></a></td>
+       <td class="success big">       <div class="progress">
+         <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" style="width: 100.00%">
+           <span class="sr-only">100.00% covered (success)</span>
+         </div>
+       </div>
+</td>
+       <td class="success small"><div align="right">100.00%</div></td>
+       <td class="success small"><div align="right">1&nbsp;/&nbsp;1</div></td>
+       <td class="success small">4</td>
+       <td class="success big">       <div class="progress">
+         <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" style="width: 100.00%">
+           <span class="sr-only">100.00% covered (success)</span>
+         </div>
+       </div>
+</td>
+       <td class="success small"><div align="right">100.00%</div></td>
+       <td class="success small"><div align="right">7&nbsp;/&nbsp;7</div></td>
       </tr>
 
 
@@ -611,33 +632,54 @@
      <tr class="covered-by-large-tests popin"><td data-title="1 test covers line 370" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testMergeCols&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true"><div align="right"><a name="370"></a><a href="#370">370</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">return</span><span class="default">&nbsp;</span><span class="default">$result</span><span class="keyword">;</span></td></tr>
      <tr class="warning"><td><div align="right"><a name="371"></a><a href="#371">371</a></div></td><td class="codeLine"><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="372"></a><a href="#372">372</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="373"></a><a href="#373">373</a></div></td><td class="codeLine"><span class="comment">/*</span></td></tr>
-     <tr><td><div align="right"><a name="374"></a><a href="#374">374</a></div></td><td class="codeLine"><span class="comment">function&nbsp;del_lines(array&nbsp;$data,&nbsp;int&nbsp;...$lines):&nbsp;array</span></td></tr>
-     <tr><td><div align="right"><a name="375"></a><a href="#375">375</a></div></td><td class="codeLine"><span class="comment">{</span></td></tr>
-     <tr><td><div align="right"><a name="376"></a><a href="#376">376</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="377"></a><a href="#377">377</a></div></td><td class="codeLine"><span class="comment">}</span></td></tr>
-     <tr><td><div align="right"><a name="378"></a><a href="#378">378</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="379"></a><a href="#379">379</a></div></td><td class="codeLine"><span class="comment">function&nbsp;del_cols(array&nbsp;$data,&nbsp;string&nbsp;...$colnames):&nbsp;array</span></td></tr>
-     <tr><td><div align="right"><a name="380"></a><a href="#380">380</a></div></td><td class="codeLine"><span class="comment">{</span></td></tr>
-     <tr><td><div align="right"><a name="381"></a><a href="#381">381</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="382"></a><a href="#382">382</a></div></td><td class="codeLine"><span class="comment">}</span></td></tr>
-     <tr><td><div align="right"><a name="383"></a><a href="#383">383</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="384"></a><a href="#384">384</a></div></td><td class="codeLine"><span class="comment">function&nbsp;sort(array&nbsp;$data,&nbsp;array&nbsp;$order):&nbsp;array</span></td></tr>
-     <tr><td><div align="right"><a name="385"></a><a href="#385">385</a></div></td><td class="codeLine"><span class="comment">{</span></td></tr>
-     <tr><td><div align="right"><a name="386"></a><a href="#386">386</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="387"></a><a href="#387">387</a></div></td><td class="codeLine"><span class="comment">}</span></td></tr>
-     <tr><td><div align="right"><a name="388"></a><a href="#388">388</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="389"></a><a href="#389">389</a></div></td><td class="codeLine"><span class="comment">function&nbsp;filter(array&nbsp;$data,&nbsp;callable&nbsp;$filter):&nbsp;array</span></td></tr>
-     <tr><td><div align="right"><a name="390"></a><a href="#390">390</a></div></td><td class="codeLine"><span class="comment">{</span></td></tr>
-     <tr><td><div align="right"><a name="391"></a><a href="#391">391</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="392"></a><a href="#392">392</a></div></td><td class="codeLine"><span class="comment">}</span></td></tr>
-     <tr><td><div align="right"><a name="393"></a><a href="#393">393</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="394"></a><a href="#394">394</a></div></td><td class="codeLine"><span class="comment">function&nbsp;seek(array&nbsp;$data,&nbsp;array&nbsp;$regex):&nbsp;array</span></td></tr>
-     <tr><td><div align="right"><a name="395"></a><a href="#395">395</a></div></td><td class="codeLine"><span class="comment">{</span></td></tr>
-     <tr><td><div align="right"><a name="396"></a><a href="#396">396</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="397"></a><a href="#397">397</a></div></td><td class="codeLine"><span class="comment">}</span></td></tr>
+     <tr><td><div align="right"><a name="373"></a><a href="#373">373</a></div></td><td class="codeLine"><span class="comment">/**</span></td></tr>
+     <tr><td><div align="right"><a name="374"></a><a href="#374">374</a></div></td><td class="codeLine"><span class="comment">&nbsp;*&nbsp;Retorna&nbsp;um&nbsp;data&nbsp;frame&nbsp;com&nbsp;as&nbsp;linhas&nbsp;$lines&nbsp;&quot;apagadas&quot;.</span></td></tr>
+     <tr><td><div align="right"><a name="375"></a><a href="#375">375</a></div></td><td class="codeLine"><span class="comment">&nbsp;*</span></td></tr>
+     <tr><td><div align="right"><a name="376"></a><a href="#376">376</a></div></td><td class="codeLine"><span class="comment">&nbsp;*</span></td></tr>
+     <tr><td><div align="right"><a name="377"></a><a href="#377">377</a></div></td><td class="codeLine"><span class="comment">&nbsp;*&nbsp;@param&nbsp;array&lt;array&gt;&nbsp;$data</span></td></tr>
+     <tr><td><div align="right"><a name="378"></a><a href="#378">378</a></div></td><td class="codeLine"><span class="comment">&nbsp;*&nbsp;@param&nbsp;int&nbsp;$lines</span></td></tr>
+     <tr><td><div align="right"><a name="379"></a><a href="#379">379</a></div></td><td class="codeLine"><span class="comment">&nbsp;*&nbsp;@return&nbsp;array&lt;array&gt;</span></td></tr>
+     <tr><td><div align="right"><a name="380"></a><a href="#380">380</a></div></td><td class="codeLine"><span class="comment">&nbsp;*&nbsp;@throws&nbsp;Exception</span></td></tr>
+     <tr><td><div align="right"><a name="381"></a><a href="#381">381</a></div></td><td class="codeLine"><span class="comment">&nbsp;*/</span></td></tr>
+     <tr><td><div align="right"><a name="382"></a><a href="#382">382</a></div></td><td class="codeLine"><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">del_lines</span><span class="keyword">(</span><span class="keyword">array</span><span class="default">&nbsp;</span><span class="default">$data</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">int</span><span class="default">&nbsp;</span><span class="default">...</span><span class="default">$lines</span><span class="keyword">)</span><span class="keyword">:</span><span class="default">&nbsp;</span><span class="keyword">array</span></td></tr>
+     <tr><td><div align="right"><a name="383"></a><a href="#383">383</a></div></td><td class="codeLine"><span class="keyword">{</span></td></tr>
+     <tr class="covered-by-large-tests popin"><td data-title="2 tests cover line 384" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testDelLines&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testDelLinesFail&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true"><div align="right"><a name="384"></a><a href="#384">384</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$result</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">$data</span><span class="keyword">;</span></td></tr>
+     <tr><td><div align="right"><a name="385"></a><a href="#385">385</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
+     <tr class="covered-by-large-tests popin"><td data-title="2 tests cover line 386" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testDelLines&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testDelLinesFail&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true"><div align="right"><a name="386"></a><a href="#386">386</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">foreach</span><span class="default">&nbsp;</span><span class="keyword">(</span><span class="default">$lines</span><span class="default">&nbsp;</span><span class="keyword">as</span><span class="default">&nbsp;</span><span class="default">$index</span><span class="keyword">)</span><span class="default">&nbsp;</span><span class="keyword">{</span></td></tr>
+     <tr class="covered-by-large-tests popin"><td data-title="2 tests cover line 387" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testDelLines&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testDelLinesFail&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true"><div align="right"><a name="387"></a><a href="#387">387</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">if</span><span class="default">&nbsp;</span><span class="keyword">(</span><span class="keyword">!</span><span class="default">key_exists</span><span class="keyword">(</span><span class="default">$index</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">$data</span><span class="keyword">)</span><span class="keyword">)</span><span class="default">&nbsp;</span><span class="keyword">{</span></td></tr>
+     <tr class="covered-by-large-tests popin"><td data-title="1 test covers line 388" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testDelLinesFail&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true"><div align="right"><a name="388"></a><a href="#388">388</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">if</span><span class="default">&nbsp;</span><span class="keyword">(</span><span class="keyword">!</span><span class="default">key_exists</span><span class="keyword">(</span><span class="default">$index</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">$data</span><span class="keyword">)</span><span class="keyword">)</span><span class="default">&nbsp;</span><span class="keyword">{</span></td></tr>
+     <tr class="covered-by-large-tests popin"><td data-title="1 test covers line 389" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testDelLinesFail&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true"><div align="right"><a name="389"></a><a href="#389">389</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">throw</span><span class="default">&nbsp;</span><span class="keyword">new</span><span class="default">&nbsp;</span><span class="default">Exception</span><span class="keyword">(</span><span class="string">&quot;</span><span class="string">A&nbsp;linha&nbsp;</span><span class="string">$index</span><span class="string">&nbsp;não&nbsp;foi&nbsp;encontrada.</span><span class="string">&quot;</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
+     <tr><td><div align="right"><a name="390"></a><a href="#390">390</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
+     <tr><td><div align="right"><a name="391"></a><a href="#391">391</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
+     <tr><td><div align="right"><a name="392"></a><a href="#392">392</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
+     <tr class="covered-by-large-tests popin"><td data-title="1 test covers line 393" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testDelLines&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true"><div align="right"><a name="393"></a><a href="#393">393</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">unset</span><span class="keyword">(</span><span class="default">$result</span><span class="keyword">[</span><span class="default">$index</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
+     <tr><td><div align="right"><a name="394"></a><a href="#394">394</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
+     <tr><td><div align="right"><a name="395"></a><a href="#395">395</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
+     <tr class="covered-by-large-tests popin"><td data-title="1 test covers line 396" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testDelLines&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true"><div align="right"><a name="396"></a><a href="#396">396</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">return</span><span class="default">&nbsp;</span><span class="default">array_merge</span><span class="keyword">(</span><span class="default">$result</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="keyword">[</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">;</span><span class="comment">//merge&nbsp;necessário&nbsp;para&nbsp;resetar&nbsp;as&nbsp;chaves&nbsp;das&nbsp;linhas</span></td></tr>
+     <tr class="warning"><td><div align="right"><a name="397"></a><a href="#397">397</a></div></td><td class="codeLine"><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="398"></a><a href="#398">398</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="399"></a><a href="#399">399</a></div></td><td class="codeLine"><span class="comment">*/</span></td></tr>
+     <tr><td><div align="right"><a name="399"></a><a href="#399">399</a></div></td><td class="codeLine"><span class="comment">/*</span></td></tr>
+     <tr><td><div align="right"><a name="400"></a><a href="#400">400</a></div></td><td class="codeLine"><span class="comment">function&nbsp;del_cols(array&nbsp;$data,&nbsp;string&nbsp;...$colnames):&nbsp;array</span></td></tr>
+     <tr><td><div align="right"><a name="401"></a><a href="#401">401</a></div></td><td class="codeLine"><span class="comment">{</span></td></tr>
+     <tr><td><div align="right"><a name="402"></a><a href="#402">402</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="403"></a><a href="#403">403</a></div></td><td class="codeLine"><span class="comment">}</span></td></tr>
+     <tr><td><div align="right"><a name="404"></a><a href="#404">404</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="405"></a><a href="#405">405</a></div></td><td class="codeLine"><span class="comment">function&nbsp;sort(array&nbsp;$data,&nbsp;array&nbsp;$order):&nbsp;array</span></td></tr>
+     <tr><td><div align="right"><a name="406"></a><a href="#406">406</a></div></td><td class="codeLine"><span class="comment">{</span></td></tr>
+     <tr><td><div align="right"><a name="407"></a><a href="#407">407</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="408"></a><a href="#408">408</a></div></td><td class="codeLine"><span class="comment">}</span></td></tr>
+     <tr><td><div align="right"><a name="409"></a><a href="#409">409</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="410"></a><a href="#410">410</a></div></td><td class="codeLine"><span class="comment">function&nbsp;filter(array&nbsp;$data,&nbsp;callable&nbsp;$filter):&nbsp;array</span></td></tr>
+     <tr><td><div align="right"><a name="411"></a><a href="#411">411</a></div></td><td class="codeLine"><span class="comment">{</span></td></tr>
+     <tr><td><div align="right"><a name="412"></a><a href="#412">412</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="413"></a><a href="#413">413</a></div></td><td class="codeLine"><span class="comment">}</span></td></tr>
+     <tr><td><div align="right"><a name="414"></a><a href="#414">414</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="415"></a><a href="#415">415</a></div></td><td class="codeLine"><span class="comment">function&nbsp;seek(array&nbsp;$data,&nbsp;array&nbsp;$regex):&nbsp;array</span></td></tr>
+     <tr><td><div align="right"><a name="416"></a><a href="#416">416</a></div></td><td class="codeLine"><span class="comment">{</span></td></tr>
+     <tr><td><div align="right"><a name="417"></a><a href="#417">417</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="418"></a><a href="#418">418</a></div></td><td class="codeLine"><span class="comment">}</span></td></tr>
+     <tr><td><div align="right"><a name="419"></a><a href="#419">419</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="420"></a><a href="#420">420</a></div></td><td class="codeLine"><span class="comment">*/</span></td></tr>
 
     </tbody>
    </table>
@@ -650,7 +692,7 @@
      <span class="warning"><strong>Dead Code</strong></span>
     </p>
     <p>
-     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 8.0.2</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.3</a> with <a href="https://xdebug.org/">Xdebug 2.9.2</a> and <a href="https://phpunit.de/">PHPUnit 9.2.6</a> at Wed Jul 22 16:59:41 UTC 2020.</small>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 8.0.2</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.3</a> with <a href="https://xdebug.org/">Xdebug 2.9.2</a> and <a href="https://phpunit.de/">PHPUnit 9.2.6</a> at Wed Jul 22 17:18:36 UTC 2020.</small>
     </p>
     <a title="Back to the top" id="toplink" href="#">
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M12 11L6 5l-6 6h12z"/></svg>

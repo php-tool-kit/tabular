@@ -370,12 +370,33 @@ function merge_cols(array ...$datas): array
     return $result;
 }
 
-/*
+/**
+ * Retorna um data frame com as linhas $lines "apagadas".
+ *
+ *
+ * @param array<array> $data
+ * @param int $lines
+ * @return array<array>
+ * @throws Exception
+ */
 function del_lines(array $data, int ...$lines): array
 {
-
+    $result = $data;
+    
+    foreach ($lines as $index) {
+        if (!key_exists($index, $data)) {
+            if (!key_exists($index, $data)) {
+                throw new Exception("A linha $index não foi encontrada.");
+            }
+        }
+        
+        unset($result[$index]);
+    }
+    
+    return array_merge($result, []);//merge necessário para resetar as chaves das linhas
 }
 
+/*
 function del_cols(array $data, string ...$colnames): array
 {
 
