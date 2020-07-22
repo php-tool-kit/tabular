@@ -2,6 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 use function ptk\tabular\check_structure;
+use function ptk\tabular\col_names;
 
 /**
  * Testes para ptk\tabular
@@ -60,5 +61,10 @@ class TabularTest extends TestCase
 //        print_r($sample);exit();
         $this->expectException(Exception::class);
         $this->assertTrue(check_structure($sample));
+    }
+    
+    public function testColNames()
+    {
+        $this->assertEquals(array_keys($this->sample1[0]), col_names($this->sample1));
     }
 }
