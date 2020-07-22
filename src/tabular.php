@@ -198,12 +198,32 @@ function get_col_range(array $data, string $first = '', string $last = ''): arra
     
     return $result;
 }
-/*
+
+/**
+ * Retorna um conjunto de linhas.
+ *
+ * As chaves de linhas serão reindexadas no resultado.
+ *
+ * @param array<array> $data
+ * @param int $lines Uma lista de linhas para retornar.
+ * @return array<array>
+ * @throws Exception
+ */
 function get_lines(array $data, int ...$lines): array
 {
-
+    $result = [];
+    
+    foreach ($lines as $index) {
+        if (!key_exists($index, $data)) {
+            throw new Exception("A linha $index não foi encontrada.");
+        }
+        
+        $result[] = $data[$index];
+    }
+    
+    return $result;
 }
-
+/*
 function get_line_range(array $data, int $first = 0, int $last = 0): array
 {
 

@@ -5,6 +5,7 @@ use function ptk\tabular\check_structure;
 use function ptk\tabular\col_names;
 use function ptk\tabular\get_col_range;
 use function ptk\tabular\get_cols;
+use function ptk\tabular\get_lines;
 
 /**
  * Testes para ptk\tabular
@@ -105,7 +106,7 @@ class TabularTest extends TestCase
         $this->assertEquals($expected, get_cols($this->sample1, 'name'));
     }
 
-    public function testGetColFail()
+    public function testGetColsFail()
     {
         $this->expectException(Exception::class);
         get_cols($this->sample1, 'unknow');
@@ -148,7 +149,7 @@ class TabularTest extends TestCase
         ];
         $this->assertEquals($expected, get_col_range($this->sample1, '', 'name'));
     }
-    
+
     public function testGetColRangeLastOmitted()
     {
         $expected = [
@@ -167,16 +168,39 @@ class TabularTest extends TestCase
         ];
         $this->assertEquals($expected, get_col_range($this->sample1, 'name', ''));
     }
-    
+
     public function testGetColRangeFailOnFirst()
     {
         $this->expectException(Exception::class);
         get_col_range($this->sample1, 'unknow', 'age');
     }
-    
+
     public function testGetColRangeFailOnLast()
     {
         $this->expectException(Exception::class);
         get_col_range($this->sample1, 'id', 'unknow');
+    }
+
+    public function testGetLines()
+    {
+        $expected = [
+            [
+                'id' => 1,
+                'name' => 'John',
+                'age' => 39
+            ],
+            [
+                'id' => 3,
+                'name' => 'Paul',
+                'age' => 12
+            ]
+        ];
+        $this->assertEquals($expected, get_lines($this->sample1, 0,2));
+    }
+    
+    public function testGetLinesFail()
+    {
+        $this->expectException(Exception::class);
+        get_lines($this->sample1, 3);
     }
 }
