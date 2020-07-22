@@ -3,6 +3,7 @@
 use PHPUnit\Framework\TestCase;
 use function ptk\tabular\check_structure;
 use function ptk\tabular\col_names;
+use function ptk\tabular\del_cols;
 use function ptk\tabular\del_lines;
 use function ptk\tabular\get_col_range;
 use function ptk\tabular\get_cols;
@@ -387,13 +388,13 @@ class TabularTest extends TestCase
         ];
         $this->assertEquals($expected, merge_cols($this->sample1, $this->sample3));
     }
-    
+
     public function testMergeColsFailNumLines()
     {
         $this->expectException(Exception::class);
         merge_cols($this->sample1, []);
     }
-    
+
     public function testDelLines()
     {
         $expected = [
@@ -405,10 +406,32 @@ class TabularTest extends TestCase
         ];
         $this->assertEquals($expected, del_lines($this->sample1, 0, 2));
     }
-    
+
     public function testDelLinesFail()
     {
         $this->expectException(Exception::class);
         del_lines($this->sample1, 5);
+    }
+
+    public function testDelCols()
+    {
+        $expected = [
+            [
+                'name' => 'John'
+            ],
+            [
+                'name' => 'Mary'
+            ],
+            [
+                'name' => 'Paul'
+            ]
+        ];
+        $this->assertEquals($expected, del_cols($this->sample1, 'id', 'age'));
+    }
+    
+    public function testDelColsFail()
+    {
+        $this->expectException(Exception::class);
+        del_cols($this->sample1, 'unknow');
     }
 }

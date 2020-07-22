@@ -396,12 +396,40 @@ function del_lines(array $data, int ...$lines): array
     return array_merge($result, []);//merge necessário para resetar as chaves das linhas
 }
 
-/*
+/**
+ * Retorna um data frame com as colunas $colnames "apagadas".
+ * @param array<array> $data
+ * @param string $colnames
+ * @return array<array>
+ * @throws Exception
+ */
 function del_cols(array $data, string ...$colnames): array
 {
-
+    $result = $data;
+    $base_colnames = col_names($data);
+    
+    foreach ($colnames as $name) {
+        if (array_search($name, $base_colnames) === false) {
+            throw new Exception(
+                //@codeCoverageIgnoreStart
+                sprintf(
+                    'A coluna %s não foi encontrada entre as colunas %s',
+                    $name,
+                    join(', ', $base_colnames)
+                )
+                //@codeCoverageIgnoreEnd
+            );
+        }
+        
+        foreach ($data as $line => $cols) {
+            unset($result[$line][$name]);
+        }
+    }
+    
+    return $result;
 }
 
+/*
 function sort(array $data, array $order): array
 {
 
