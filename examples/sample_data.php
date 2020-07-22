@@ -20,3 +20,21 @@ $sample_data1 = [
         'age' => 12
     ]
 ];
+
+$sample_data2 = [
+    [
+        'id' => 1,
+        'name' => 'Matt',
+        'age' => 20
+    ],
+    [
+        'id' => 2,
+        'name' => 'Anne',
+        'age' => 25
+    ],
+    [
+        'id' => 3,
+        'name' => 'Joe',
+        'age' => 30
+    ]
+];

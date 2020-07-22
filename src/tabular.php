@@ -282,12 +282,48 @@ function get_line_range(array $data, int $first = 0, int $last = 0): array
 
     return $result;
 }
-/*
+
+/**
+ * Mescla as linhas de vários data frames em um único.
+ *
+ * É necessário que cada data frame possua o mesmo número e o mesmo nome nas suas colunas.
+ *
+ * @param array<array> $datas
+ * @return array<array>
+ * @throws Exception
+ */
 function merge_lines(array ...$datas): array
 {
-
+    $result = [];
+    $base_colnames = [];
+    foreach ($datas as $dataindex => $data) {
+        //define os nomes de colunas de referência.
+        if ($base_colnames === []) {
+            $base_colnames = col_names($data);
+        }
+        
+        //testa se a quantidade e os nomes de colunas são os mesmos
+        $colnames = col_names($data);
+        if ($colnames !== $base_colnames) {
+            throw new Exception(
+                //@codeCoverageIgnoreStart
+                sprintf(
+                    'As colunas %s dos dados %d não são iguais às colunas de referência %s',
+                    join(', ', $colnames),
+                    $dataindex,
+                    join(', ', $base_colnames)
+                )
+                //@codeCoverageIgnoreEnd
+            );
+        }
+        
+        $result = array_merge($result, $data);
+    }
+    
+    return $result;
 }
 
+/*
 function merge_cols(array ...$datas): array
 {
 
