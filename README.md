@@ -48,3 +48,39 @@ Tenha em mente que os exemplos foram projetados para serem executados via linha 
 ```sh
 php examples/col_names.php
 ```
+
+## Documentação
+
+A documentação da biblioteca está no diretório `docs/html`.
+
+## Changelog
+
+O registro das alterações relevantes entre as versões está disponivel na descrição de cada [release](https://github.com/php-tool-kit/tabular/releases/).
+
+## To-do
+
+A lista de coisas a fazer pode ser encontrada nas [issues com a label todo](https://github.com/php-tool-kit/tabular/labels/todo).
+
+## Contribuições
+
+Contribuições sempre são bem vindas, entretanto para aumentar as velocidade de um *feedback* sobre elas, siga os seguintes passos:
+
+1. Faça *fork* do projeto;
+2. Crie um *branch* com um nome sugestivo para a sua contribuição;
+3. Faça *pull request* das suas contribuições;
+
+Se houver alguma [issue](https://github.com/php-tool-kit/tabular/issues) relacionada a sua contribuição, faça referência a ela.
+
+Antes de fazer *push* para o *fork*, garanta um mínimo de qualidade, por favor execute os seguintes comandos personalizados do composer:
+
+1. `composer test`
+2. `composer stan`
+3. `composer format`
+4. `composer check`
+5. `composer test`
+
+Somente avance para o passo seguinte se o comando anterior estiver OK.
+
+**É altamente recomendável que escreva testes cobrindo suas contribuições. Uma cobertura de código (*code coverage*) é altamente apreciada.**
+
+**Não esqueça de incluir/atualizar a documentação do código de acordo com sua contribuição.** O [doxygen](https://www.doxygen.nl/) é utilizado para gerar a documentação de acordo com as configurações do `Doxyfile`. Gerar a documetnação não é requerido, mas caso deseje testar a documentação, use `doxygen` (desde que o Doxygen esteja instalado).
