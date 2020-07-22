@@ -3,6 +3,7 @@
 use PHPUnit\Framework\TestCase;
 use function ptk\tabular\check_structure;
 use function ptk\tabular\col_names;
+use function ptk\tabular\get_col_range;
 use function ptk\tabular\get_cols;
 
 /**
@@ -103,10 +104,79 @@ class TabularTest extends TestCase
         ];
         $this->assertEquals($expected, get_cols($this->sample1, 'name'));
     }
-    
+
     public function testGetColFail()
     {
         $this->expectException(Exception::class);
         get_cols($this->sample1, 'unknow');
+    }
+
+    public function testGetColRange()
+    {
+        $expected = [
+            [
+                'name' => 'John',
+                'age' => 39
+            ],
+            [
+                'name' => 'Mary',
+                'age' => 37
+            ],
+            [
+                'name' => 'Paul',
+                'age' => 12
+            ]
+        ];
+        $this->assertEquals($expected, get_col_range($this->sample1, 'name', 'age'));
+    }
+
+    public function testGetColRangeFirstOmitted()
+    {
+        $expected = [
+            [
+                'id' => 1,
+                'name' => 'John'
+            ],
+            [
+                'id' => 2,
+                'name' => 'Mary'
+            ],
+            [
+                'id' => 3,
+                'name' => 'Paul'
+            ]
+        ];
+        $this->assertEquals($expected, get_col_range($this->sample1, '', 'name'));
+    }
+    
+    public function testGetColRangeLastOmitted()
+    {
+        $expected = [
+            [
+                'name' => 'John',
+                'age' => 39
+            ],
+            [
+                'name' => 'Mary',
+                'age' => 37
+            ],
+            [
+                'name' => 'Paul',
+                'age' => 12
+            ]
+        ];
+        $this->assertEquals($expected, get_col_range($this->sample1, 'name', ''));
+    }
+    
+    public function testGetColRangeFailOnFirst()
+    {
+        $this->expectException(Exception::class);
+        get_col_range($this->sample1, 'unknow', 'age');
+    }
+    
+    public function testGetColRangeFailOnLast()
+    {
+        $this->expectException(Exception::class);
+        get_col_range($this->sample1, 'id', 'unknow');
     }
 }

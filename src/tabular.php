@@ -50,7 +50,7 @@ function check_structure(array $data, bool $check_types = true): bool
     $colnames = col_names($data);
     $base_numcols = count($colnames);
     foreach ($data as $line => $cols) {
-    //testa o número de colunas
+        //testa o número de colunas
         $numcols = count($cols);
         if ($numcols !== $base_numcols) {
             throw new Exception("Número de colunas da linha $line é $numcols, no entanto deveria"
@@ -113,9 +113,9 @@ function get_cols(array $data, string ...$colnames): array
 {
     $result = [];
     $base_colnames = col_names($data);
-    
+
     foreach ($colnames as $colname) {
-        if (!array_search($colname, $base_colnames)) {
+        if (array_search($colname, $base_colnames) === false) {
             throw new Exception(
                 //@codeCoverageIgnoreStart
                 sprintf(
@@ -126,20 +126,79 @@ function get_cols(array $data, string ...$colnames): array
                 //@codeCoverageIgnoreEnd
             );
         }
-        
+
         foreach ($data as $line => $cols) {
             $result[$line][$colname] = $cols[$colname];
         }
     }
+
+    return $result;
+}
+
+/**
+ * Retorna todas as linhas com as colunas entre $first e $last.
+ *
+ * @param array<array> $data
+ * @param string $first Nome da primeira coluna do intervalo. Se omitido com uma string vazia, considera
+ * a primeira coluna.
+ * @param string $last Nome da última coluna do intervalo. Se omitido com uma string vazia, considera
+ * a última coluna.
+ * @return array<array>
+ * @throws Exception
+ */
+function get_col_range(array $data, string $first = '', string $last = ''): array
+{
+    $result = [];
+    $base_colnames = col_names($data);
+    
+    // configura os valores padrão
+    if ($first === '') {
+        $first = $base_colnames[array_key_first($base_colnames)];
+    }
+    
+    if ($last === '') {
+        $last = $base_colnames[array_key_last($base_colnames)];
+    }
+
+    //testa se as colunas existem
+    $keyfirst = array_search($first, $base_colnames);
+    $keylast = array_search($last, $base_colnames);
+    if ($keyfirst === false) {
+        throw new Exception(
+            //@codeCoverageIgnoreStart
+            sprintf(
+                'A primeira coluna %s não foi encontrada entre as colunas %s',
+                $first,
+                join(', ', $base_colnames)
+            )
+            //@codeCoverageIgnoreEnd
+        );
+    }
+    
+    if ($keylast === false) {
+        throw new Exception(
+            //@codeCoverageIgnoreStart
+            sprintf(
+                'A última coluna %s não foi encontrada entre as colunas %s',
+                $last,
+                join(', ', $base_colnames)
+            )
+            //@codeCoverageIgnoreEnd
+        );
+    }
+    
+    // pega a lista de colunas do intervalo
+    $listcols = [];
+    for ($i = $keyfirst; $i <= $keylast; $i++) {
+        $listcols[] = $base_colnames[$i];
+    }
+    
+    //monta o resultado
+    $result = get_cols($data, ...$listcols);
     
     return $result;
 }
 /*
-function get_col_range(array $data, string $first = '', string $last = ''): array
-{
-
-}
-
 function get_lines(array $data, int ...$lines): array
 {
 
