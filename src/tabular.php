@@ -518,15 +518,39 @@ function filter(array $data, callable $filter, bool $reindex = true): array
  * @param bool $head Se a primeira linha a ser interpretada contém ou não o cabeçalho dos dados.
  * @param type $skip Quantas linhas pular no começo do arquivo.
  * @return array<array>
- * @throws Exception
  * @link https://www.php.net/manual/en/function.fopen.php fopen()
  * @todo Implementar
  */
 function read_csv($handle, string $sep, bool $head = true, $skip = 0): array
 {
-    if(!is_readable($handle)){
-        throw new Exception("Arquivo não disponível para leitura.");
+    
+    //pula as linhas iniciais
+    for($i = 0; $i < $skip; $i++){
+        fgets($handle);
     }
+    
+    //pega o cabeçalho
+    if($head){
+        $header = fgetcsv($handle, 0, $sep);
+    }
+    
+    //Lê os dados
+    $data = [];
+    $line = 0;
+    while(false !== ($buffer = fgetcsv($handle, 0, $sep))){
+        if($header){
+            foreach ($buffer as $index => $value){
+                $data[$line][$header[$index]] = $value;
+            }
+            $line++;
+            continue;
+        }
+        
+        $data[$line] = $buffer;
+        $line++;
+    }
+    
+    return $data;
 }
 
 /**
@@ -537,13 +561,20 @@ function read_csv($handle, string $sep, bool $head = true, $skip = 0): array
  * @param string $sep O separador. Geralmente vírgula ou ponto-e-vírgula.
  * @param bool $head Se a primeira linha a ser interpretada contém ou não o cabeçalho dos dados.
  * @return void
- * @throws Exception
  * @link https://www.php.net/manual/en/function.fopen.php fopen()
  * @todo Implementar
  */
 function write_csv($handle, array $data, string $sep, bool $head = true): void
 {
-    if(is_writable($handle)){
-        throw new Exception("O arquivo não está disponível para escrita.");
+    
+    //salva o cabeçalho se for o caso
+    if($head){
+        fputcsv($handle, col_names($data), $sep);
     }
+    
+    //escreve os dados
+    foreach ($data as $fields){
+        fputcsv($handle, $fields, $sep);
+    }
+    
 }
