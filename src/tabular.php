@@ -509,3 +509,41 @@ function filter(array $data, callable $filter, bool $reindex = true): array
 
     return $result;
 }
+
+/**
+ * Lê dados tabulares de um arquivo CSV.
+ * 
+ * @param resource $handle Um ponteiro aberto como leitura para o arquivo CSV.
+ * @param string $sep O separador. Geralmente vírgula ou ponto-e-vírgula.
+ * @param bool $head Se a primeira linha a ser interpretada contém ou não o cabeçalho dos dados.
+ * @param type $skip Quantas linhas pular no começo do arquivo.
+ * @return array<array>
+ * @throws Exception
+ * @link https://www.php.net/manual/en/function.fopen.php fopen()
+ * @todo Implementar
+ */
+function read_csv($handle, string $sep, bool $head = true, $skip = 0): array
+{
+    if(!is_readable($handle)){
+        throw new Exception("Arquivo não disponível para leitura.");
+    }
+}
+
+/**
+ * Escreve um data frame para um arquivo CSV.
+ * 
+ * @param resource $handle Um  ponteiro aberto para escrita com fopen()
+ * @param array<array> $data Os dados para escrever.
+ * @param string $sep O separador. Geralmente vírgula ou ponto-e-vírgula.
+ * @param bool $head Se a primeira linha a ser interpretada contém ou não o cabeçalho dos dados.
+ * @return void
+ * @throws Exception
+ * @link https://www.php.net/manual/en/function.fopen.php fopen()
+ * @todo Implementar
+ */
+function write_csv($handle, array $data, string $sep, bool $head = true): void
+{
+    if(is_writable($handle)){
+        throw new Exception("O arquivo não está disponível para escrita.");
+    }
+}
