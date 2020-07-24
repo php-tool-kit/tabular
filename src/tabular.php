@@ -604,3 +604,59 @@ function seek(array $data, callable $filter): array
 
     return $result;
 }
+
+/**
+ * Encontra as linhas duplicadas, ou seja, que tem os mesmos valores de dados nas colunas.
+ * 
+ * @param array<array> $data
+ * @param bool $type Se true (o padrão), faz uma checagem nos tipos dos dados também para definir a duplicata.
+ * @return array<int> Retorna uma lista com os índices das linhas duplicadas.
+ * @todo Implementar
+ */
+function duplicates(array $data, bool $types = true): array
+{
+    
+}
+
+/**
+ * Aplica uma função em todas as linhas.
+ * 
+ * É útil para acrescentar ou modificar colunas de totais, por exemplo.
+ * 
+ * @param array<array> $data
+ * @param callable $map Uma função que deve receber um array representando a linha e deve devolver outro array representando a linha processada.
+ * @return array<array>
+ * @todo Implementar
+ */
+function map_rows(array $data, callable $map): array
+{
+    
+}
+
+/**
+ * Aplica uma função em cada uma das células das colunas indicadas.
+ * 
+ * Útil para formatar valores, por exemplo.
+ * 
+ * @param array<array> $data
+ * @param callable $map Uma função que recebe o valor da coluna e o devolve processado.
+ * @param string $cols Uma lista com os nomes das colunas para aplicar a função.
+ * @return array<array>
+ * @todo Implementar
+ */
+function map_cols(array $data, callable $map, string ...$cols): array
+{
+    $colNames = col_names($data);
+    
+    foreach ($cols as $colName){
+        if(!key_exists($colName, $colNames)){
+            throw new Exception("Coluna $colName não eoncontrada.");
+        }
+        
+        foreach ($data as $index => $row){
+            $data[$index][$colName] = $map($data[$index][$colName]);
+        }
+    }
+    
+    return $data;
+}
