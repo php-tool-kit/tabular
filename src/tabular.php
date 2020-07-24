@@ -649,8 +649,8 @@ function map_cols(array $data, callable $map, string ...$cols): array
     $colNames = col_names($data);
     
     foreach ($cols as $colName){
-        if(!key_exists($colName, $colNames)){
-            throw new Exception("Coluna $colName não eoncontrada.");
+        if(array_search($colName, $colNames) === false){
+            throw new Exception("Coluna $colName não encontrada.");
         }
         
         foreach ($data as $index => $row){
