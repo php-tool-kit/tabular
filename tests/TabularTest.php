@@ -12,7 +12,9 @@ use function ptk\tabular\get_line_range;
 use function ptk\tabular\get_lines;
 use function ptk\tabular\merge_cols;
 use function ptk\tabular\merge_lines;
+use function ptk\tabular\read_csv;
 use function ptk\tabular\sort;
+use function ptk\tabular\write_csv;
 
 /**
  * Testes para ptk\tabular
@@ -519,5 +521,70 @@ class TabularTest extends TestCase
             ]
         ];
         $this->assertEquals($expected, filter($this->sample1, $filter, false));
+    }
+    
+    public function testReadCsv()
+    {
+        $handle = fopen('./tests/assets/sample.csv', 'r');
+        
+        $this->assertEquals($this->sample1, read_csv($handle, ';'));
+    }
+    
+    public function testReadCsvNoHead()
+    {
+        $handle = fopen('./tests/assets/sample_1.csv', 'r');
+        $expected = [
+            [1, 'John', 39],
+            [2, 'Mary', 37],
+            [3, 'Paul', 12]
+        ];
+        
+        $this->assertEquals($expected, read_csv($handle, ';', false));
+    }
+    
+    public function testReadCsvSkipLines()
+    {
+        $handle = fopen('./tests/assets/sample_2.csv', 'r');
+        
+        $this->assertEquals($this->sample1, read_csv($handle, ';', true, 2));
+    }
+    
+    public function testReadCsvNoHeadAndSkipLines()
+    {
+        $handle = fopen('./tests/assets/sample_3.csv', 'r');
+        $expected = [
+            [1, 'John', 39],
+            [2, 'Mary', 37],
+            [3, 'Paul', 12]
+        ];
+        
+        $this->assertEquals($expected, read_csv($handle, ';', false, 2));
+    }
+    
+    public function testWriteCsv()
+    {
+        $filename = './tests/assets/output1.csv';
+        $handle = fopen($filename, 'w');
+        write_csv($handle, $this->sample1, ';');
+        fclose($handle);
+        
+        $handle = fopen($filename, 'r');
+        $this->assertEquals($this->sample1, read_csv($handle, ';'));
+    }
+    
+    public function testWriteCsvNoHead()
+    {
+        $filename = './tests/assets/output2.csv';
+        $handle = fopen($filename, 'w');
+        write_csv($handle, $this->sample1, ';', false);
+        fclose($handle);
+        
+        $handle = fopen($filename, 'r');
+        $expected = [
+            [1, 'John', 39],
+            [2, 'Mary', 37],
+            [3, 'Paul', 12]
+        ];
+        $this->assertEquals($expected, read_csv($handle, ';', false));
     }
 }

@@ -74,10 +74,9 @@ Se houver alguma [issue](https://github.com/php-tool-kit/tabular/issues) relacio
 Antes de fazer *push* para o *fork*, garanta um mínimo de qualidade, por favor execute os seguintes comandos personalizados do composer:
 
 1. `composer test`
-2. `composer stan`
-3. `composer format`
-4. `composer check`
-5. `composer test`
+2. `composer format`
+3. `composer check`
+4. `composer test`
 
 Somente avance para o passo seguinte se o comando anterior estiver OK.
 

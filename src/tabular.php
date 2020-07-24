@@ -512,34 +512,35 @@ function filter(array $data, callable $filter, bool $reindex = true): array
 
 /**
  * Lê dados tabulares de um arquivo CSV.
- * 
+ *
  * @param resource $handle Um ponteiro aberto como leitura para o arquivo CSV.
  * @param string $sep O separador. Geralmente vírgula ou ponto-e-vírgula.
  * @param bool $head Se a primeira linha a ser interpretada contém ou não o cabeçalho dos dados.
- * @param type $skip Quantas linhas pular no começo do arquivo.
+ * @param int $skip Quantas linhas pular no começo do arquivo.
  * @return array<array>
  * @link https://www.php.net/manual/en/function.fopen.php fopen()
  * @todo Implementar
  */
-function read_csv($handle, string $sep, bool $head = true, $skip = 0): array
+function read_csv($handle, string $sep, bool $head = true, int $skip = 0): array
 {
     
     //pula as linhas iniciais
-    for($i = 0; $i < $skip; $i++){
+    for ($i = 0; $i < $skip; $i++) {
         fgets($handle);
     }
     
     //pega o cabeçalho
-    if($head){
+    $header = [];
+    if ($head) {
         $header = fgetcsv($handle, 0, $sep);
     }
     
     //Lê os dados
     $data = [];
     $line = 0;
-    while(false !== ($buffer = fgetcsv($handle, 0, $sep))){
-        if($header){
-            foreach ($buffer as $index => $value){
+    while (false !== ($buffer = fgetcsv($handle, 0, $sep))) {
+        if ($header !== []) {
+            foreach ($buffer as $index => $value) {
                 $data[$line][$header[$index]] = $value;
             }
             $line++;
@@ -555,7 +556,7 @@ function read_csv($handle, string $sep, bool $head = true, $skip = 0): array
 
 /**
  * Escreve um data frame para um arquivo CSV.
- * 
+ *
  * @param resource $handle Um  ponteiro aberto para escrita com fopen()
  * @param array<array> $data Os dados para escrever.
  * @param string $sep O separador. Geralmente vírgula ou ponto-e-vírgula.
@@ -568,13 +569,31 @@ function write_csv($handle, array $data, string $sep, bool $head = true): void
 {
     
     //salva o cabeçalho se for o caso
-    if($head){
+    if ($head) {
         fputcsv($handle, col_names($data), $sep);
     }
     
     //escreve os dados
-    foreach ($data as $fields){
+    foreach ($data as $fields) {
         fputcsv($handle, $fields, $sep);
     }
-    
 }
+
+/**
+ * Retorna uma lista com os índices de linhas filtrados por $filter.
+ *
+ * Difere da função filter(), porque a primeira devolve um data frame com as linhas filtradas, e esta
+ * devolve os índices de linha.
+ * Isso é útil quando queremos excluir linhas com base em critérios, por exemplo.
+ *
+ * @param array<array> $data
+ * @param callable $filter Uma função que recebe a linha e deve retornar true ou false. Apenas linhas
+ * que geram retorno true terão seus índices incluídos no retorno.
+ * @return array<int>
+ */
+/*
+function seek(array $data, callable $filter): array
+{
+
+}
+*/
