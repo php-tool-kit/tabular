@@ -115,6 +115,12 @@ Funções</h2></td></tr>
 <tr class="separator:aa8a1d44546455619a6912d4cc471501c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ca44b11fdc840b5527e495ee1d0e1be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceptk_1_1tabular.html#a6ca44b11fdc840b5527e495ee1d0e1be">filter</a> (array $data, callable $filter, bool $reindex=true)</td></tr>
 <tr class="separator:a6ca44b11fdc840b5527e495ee1d0e1be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad922f7b58f141a16581be1193dab1107"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceptk_1_1tabular.html#ad922f7b58f141a16581be1193dab1107">read_csv</a> ($handle, string $sep, bool $head=true, int $skip=0)</td></tr>
+<tr class="separator:ad922f7b58f141a16581be1193dab1107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cf1e5268bc7221216dff63ca8e58a58"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceptk_1_1tabular.html#a4cf1e5268bc7221216dff63ca8e58a58">write_csv</a> ($handle, array $data, string $sep, bool $head=true)</td></tr>
+<tr class="separator:a4cf1e5268bc7221216dff63ca8e58a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d588cc12eb8de349f8a880a4a8d8acf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceptk_1_1tabular.html#a8d588cc12eb8de349f8a880a4a8d8acf">seek</a> (array $data, callable $<a class="el" href="namespaceptk_1_1tabular.html#a6ca44b11fdc840b5527e495ee1d0e1be">filter</a>)</td></tr>
+<tr class="separator:a8d588cc12eb8de349f8a880a4a8d8acf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
 <div class="textblock"><p>Biblioteca para manipulação de dados tabulares, oferecendo funções complementares às funções de array da biblioteca padrão do PHP.</p>
@@ -193,7 +199,7 @@ Funções</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>array&lt;string&gt; </dd></dl>
 
-<p class="reference">Referenciado(a) por <a class="el" href="namespaceptk_1_1tabular.html#a061cf0e67fb11b0e7dea8effae7ed5b3">ptk\tabular\check_structure()</a>, <a class="el" href="namespaceptk_1_1tabular.html#af4623dfe4907e3b8a25165c0091bf8e6">ptk\tabular\del_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a399b8eac5b41e548b3295b4f0ed566d7">ptk\tabular\get_col_range()</a>, <a class="el" href="namespaceptk_1_1tabular.html#af88b9026b0640105f00a1a77aba1fda5">ptk\tabular\get_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a0f79546f05ee2d45b08565ab9a00f495">ptk\tabular\merge_lines()</a> e <a class="el" href="namespaceptk_1_1tabular.html#aa8a1d44546455619a6912d4cc471501c">ptk\tabular\sort()</a>.</p>
+<p class="reference">Referenciado(a) por <a class="el" href="namespaceptk_1_1tabular.html#a061cf0e67fb11b0e7dea8effae7ed5b3">ptk\tabular\check_structure()</a>, <a class="el" href="namespaceptk_1_1tabular.html#af4623dfe4907e3b8a25165c0091bf8e6">ptk\tabular\del_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a399b8eac5b41e548b3295b4f0ed566d7">ptk\tabular\get_col_range()</a>, <a class="el" href="namespaceptk_1_1tabular.html#af88b9026b0640105f00a1a77aba1fda5">ptk\tabular\get_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a0f79546f05ee2d45b08565ab9a00f495">ptk\tabular\merge_lines()</a>, <a class="el" href="namespaceptk_1_1tabular.html#aa8a1d44546455619a6912d4cc471501c">ptk\tabular\sort()</a> e <a class="el" href="namespaceptk_1_1tabular.html#a4cf1e5268bc7221216dff63ca8e58a58">ptk\tabular\write_csv()</a>.</p>
 
 </div>
 </div>
@@ -594,6 +600,96 @@ Funções</h2></td></tr>
 
 </div>
 </div>
+<a id="ad922f7b58f141a16581be1193dab1107"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad922f7b58f141a16581be1193dab1107">&#9670;&nbsp;</a></span>read_csv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ptk\tabular\read_csv </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>$sep</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>$head</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>$skip</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Lê dados tabulares de um arquivo CSV.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">resource</td><td class="paramname">$handle</td><td>Um ponteiro aberto como leitura para o arquivo CSV. </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$sep</td><td>O separador. Geralmente vírgula ou ponto-e-vírgula. </td></tr>
+    <tr><td class="paramtype">bool</td><td class="paramname">$head</td><td>Se a primeira linha a ser interpretada contém ou não o cabeçalho dos dados. </td></tr>
+    <tr><td class="paramtype">int</td><td class="paramname">$skip</td><td>Quantas linhas pular no começo do arquivo. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>array&lt;array&gt; <a class="el" href="">fopen()  todo 1. </a></dd></dl>
+
+</div>
+</div>
+<a id="a8d588cc12eb8de349f8a880a4a8d8acf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d588cc12eb8de349f8a880a4a8d8acf">&#9670;&nbsp;</a></span>seek()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ptk\tabular\seek </td>
+          <td>(</td>
+          <td class="paramtype">array&#160;</td>
+          <td class="paramname"><em>$data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">callable&#160;</td>
+          <td class="paramname"><em>$filter</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Retorna uma lista com os índices de linhas filtrados por $filter.</p>
+<p>Difere da função <a class="el" href="namespaceptk_1_1tabular.html#a6ca44b11fdc840b5527e495ee1d0e1be">filter()</a>, porque a primeira devolve um data frame com as linhas filtradas, e esta devolve os índices de linha. Isso é útil quando queremos excluir linhas com base em critérios, por exemplo.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype"></td><td class="paramname">array&lt;array&gt;</td><td>$data </td></tr>
+    <tr><td class="paramtype">callable</td><td class="paramname">$filter</td><td>Uma função que recebe a linha e deve retornar true ou false. Apenas linhas que geram retorno true terão seus índices incluídos no retorno. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>array&lt;int&gt; </dd></dl>
+<dl class="section see"><dt>Veja também</dt><dd><a class="el" href="namespaceptk_1_1tabular.html#a6ca44b11fdc840b5527e495ee1d0e1be">filter()</a> </dd></dl>
+
+</div>
+</div>
 <a id="aa8a1d44546455619a6912d4cc471501c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa8a1d44546455619a6912d4cc471501c">&#9670;&nbsp;</a></span>sort()</h2>
 
@@ -634,6 +730,59 @@ Funções</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="reference">Referencias <a class="el" href="namespaceptk_1_1tabular.html#a77d6a4b1e2ccf9bccc413da6b9153552">ptk\tabular\col_names()</a>.</p>
+
+</div>
+</div>
+<a id="a4cf1e5268bc7221216dff63ca8e58a58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cf1e5268bc7221216dff63ca8e58a58">&#9670;&nbsp;</a></span>write_csv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ptk\tabular\write_csv </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>$handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array&#160;</td>
+          <td class="paramname"><em>$data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>$sep</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>$head</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Escreve um data frame para um arquivo CSV.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">resource</td><td class="paramname">$handle</td><td>Um ponteiro aberto para escrita com fopen() </td></tr>
+    <tr><td class="paramtype"></td><td class="paramname">array&lt;array&gt;</td><td>$data Os dados para escrever. </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$sep</td><td>O separador. Geralmente vírgula ou ponto-e-vírgula. </td></tr>
+    <tr><td class="paramtype">bool</td><td class="paramname">$head</td><td>Se a primeira linha a ser interpretada contém ou não o cabeçalho dos dados. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>void <a class="el" href="">fopen()  todo 2. </a></dd></dl>
 
 <p class="reference">Referencias <a class="el" href="namespaceptk_1_1tabular.html#a77d6a4b1e2ccf9bccc413da6b9153552">ptk\tabular\col_names()</a>.</p>
 

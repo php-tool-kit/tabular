@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sort_29',['sort',['../namespaceptk_1_1tabular.html#aa8a1d44546455619a6912d4cc471501c',1,'ptk::tabular']]]
+  ['read_5fcsv_33',['read_csv',['../namespaceptk_1_1tabular.html#ad922f7b58f141a16581be1193dab1107',1,'ptk::tabular']]]
 ];
