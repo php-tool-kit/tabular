@@ -590,10 +590,17 @@ function write_csv($handle, array $data, string $sep, bool $head = true): void
  * @param callable $filter Uma função que recebe a linha e deve retornar true ou false. Apenas linhas
  * que geram retorno true terão seus índices incluídos no retorno.
  * @return array<int>
+ * @see filter()
  */
-/*
 function seek(array $data, callable $filter): array
 {
+    $result = [];
 
+    foreach ($data as $line => $cols) {
+        if ($filter($cols) === true) {
+            $result[] = $line;
+        }
+    }
+
+    return $result;
 }
-*/

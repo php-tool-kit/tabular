@@ -53,7 +53,7 @@
        </div>
 </td>
        <td class="success small"><div align="right">100.00%</div></td>
-       <td class="success small"><div align="right">14&nbsp;/&nbsp;14</div></td>
+       <td class="success small"><div align="right">15&nbsp;/&nbsp;15</div></td>
        <td class="success small"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></td>
        <td class="success big">       <div class="progress">
          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" style="width: 100.00%">
@@ -62,7 +62,7 @@
        </div>
 </td>
        <td class="success small"><div align="right">100.00%</div></td>
-       <td class="success small"><div align="right">150&nbsp;/&nbsp;150</div></td>
+       <td class="success small"><div align="right">155&nbsp;/&nbsp;155</div></td>
       </tr>
 
       <tr>
@@ -340,6 +340,27 @@
 
       <tr>
        <td class="success" colspan="4"><a href="#568"><abbr title="write_csv($handle, array $data, string $sep, bool $head = true): void">ptk\tabular\write_csv</abbr></a></td>
+       <td class="success big">       <div class="progress">
+         <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" style="width: 100.00%">
+           <span class="sr-only">100.00% covered (success)</span>
+         </div>
+       </div>
+</td>
+       <td class="success small"><div align="right">100.00%</div></td>
+       <td class="success small"><div align="right">1&nbsp;/&nbsp;1</div></td>
+       <td class="success small">3</td>
+       <td class="success big">       <div class="progress">
+         <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" style="width: 100.00%">
+           <span class="sr-only">100.00% covered (success)</span>
+         </div>
+       </div>
+</td>
+       <td class="success small"><div align="right">100.00%</div></td>
+       <td class="success small"><div align="right">5&nbsp;/&nbsp;5</div></td>
+      </tr>
+
+      <tr>
+       <td class="success" colspan="4"><a href="#595"><abbr title="seek(array $data, callable $filter): array">ptk\tabular\seek</abbr></a></td>
        <td class="success big">       <div class="progress">
          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" style="width: 100.00%">
            <span class="sr-only">100.00% covered (success)</span>
@@ -957,13 +978,20 @@
      <tr><td><div align="right"><a name="590"></a><a href="#590">590</a></div></td><td class="codeLine"><span class="comment">&nbsp;*&nbsp;@param&nbsp;callable&nbsp;$filter&nbsp;Uma&nbsp;função&nbsp;que&nbsp;recebe&nbsp;a&nbsp;linha&nbsp;e&nbsp;deve&nbsp;retornar&nbsp;true&nbsp;ou&nbsp;false.&nbsp;Apenas&nbsp;linhas</span></td></tr>
      <tr><td><div align="right"><a name="591"></a><a href="#591">591</a></div></td><td class="codeLine"><span class="comment">&nbsp;*&nbsp;que&nbsp;geram&nbsp;retorno&nbsp;true&nbsp;terão&nbsp;seus&nbsp;índices&nbsp;incluídos&nbsp;no&nbsp;retorno.</span></td></tr>
      <tr><td><div align="right"><a name="592"></a><a href="#592">592</a></div></td><td class="codeLine"><span class="comment">&nbsp;*&nbsp;@return&nbsp;array&lt;int&gt;</span></td></tr>
-     <tr><td><div align="right"><a name="593"></a><a href="#593">593</a></div></td><td class="codeLine"><span class="comment">&nbsp;*/</span></td></tr>
-     <tr><td><div align="right"><a name="594"></a><a href="#594">594</a></div></td><td class="codeLine"><span class="comment">/*</span></td></tr>
-     <tr><td><div align="right"><a name="595"></a><a href="#595">595</a></div></td><td class="codeLine"><span class="comment">function&nbsp;seek(array&nbsp;$data,&nbsp;callable&nbsp;$filter):&nbsp;array</span></td></tr>
-     <tr><td><div align="right"><a name="596"></a><a href="#596">596</a></div></td><td class="codeLine"><span class="comment">{</span></td></tr>
-     <tr><td><div align="right"><a name="597"></a><a href="#597">597</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="598"></a><a href="#598">598</a></div></td><td class="codeLine"><span class="comment">}</span></td></tr>
-     <tr><td><div align="right"><a name="599"></a><a href="#599">599</a></div></td><td class="codeLine"><span class="comment">*/</span></td></tr>
+     <tr><td><div align="right"><a name="593"></a><a href="#593">593</a></div></td><td class="codeLine"><span class="comment">&nbsp;*&nbsp;@see&nbsp;filter()</span></td></tr>
+     <tr><td><div align="right"><a name="594"></a><a href="#594">594</a></div></td><td class="codeLine"><span class="comment">&nbsp;*/</span></td></tr>
+     <tr><td><div align="right"><a name="595"></a><a href="#595">595</a></div></td><td class="codeLine"><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">seek</span><span class="keyword">(</span><span class="keyword">array</span><span class="default">&nbsp;</span><span class="default">$data</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="keyword">callable</span><span class="default">&nbsp;</span><span class="default">$filter</span><span class="keyword">)</span><span class="keyword">:</span><span class="default">&nbsp;</span><span class="keyword">array</span></td></tr>
+     <tr><td><div align="right"><a name="596"></a><a href="#596">596</a></div></td><td class="codeLine"><span class="keyword">{</span></td></tr>
+     <tr class="covered-by-large-tests popin"><td data-title="1 test covers line 597" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testSeek&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true"><div align="right"><a name="597"></a><a href="#597">597</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$result</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="keyword">[</span><span class="keyword">]</span><span class="keyword">;</span></td></tr>
+     <tr><td><div align="right"><a name="598"></a><a href="#598">598</a></div></td><td class="codeLine"></td></tr>
+     <tr class="covered-by-large-tests popin"><td data-title="1 test covers line 599" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testSeek&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true"><div align="right"><a name="599"></a><a href="#599">599</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">foreach</span><span class="default">&nbsp;</span><span class="keyword">(</span><span class="default">$data</span><span class="default">&nbsp;</span><span class="keyword">as</span><span class="default">&nbsp;</span><span class="default">$line</span><span class="default">&nbsp;</span><span class="default">=&gt;</span><span class="default">&nbsp;</span><span class="default">$cols</span><span class="keyword">)</span><span class="default">&nbsp;</span><span class="keyword">{</span></td></tr>
+     <tr class="covered-by-large-tests popin"><td data-title="1 test covers line 600" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testSeek&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true"><div align="right"><a name="600"></a><a href="#600">600</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">if</span><span class="default">&nbsp;</span><span class="keyword">(</span><span class="default">$filter</span><span class="keyword">(</span><span class="default">$cols</span><span class="keyword">)</span><span class="default">&nbsp;</span><span class="default">===</span><span class="default">&nbsp;</span><span class="default">true</span><span class="keyword">)</span><span class="default">&nbsp;</span><span class="keyword">{</span></td></tr>
+     <tr class="covered-by-large-tests popin"><td data-title="1 test covers line 601" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testSeek&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true"><div align="right"><a name="601"></a><a href="#601">601</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$result</span><span class="keyword">[</span><span class="keyword">]</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">$line</span><span class="keyword">;</span></td></tr>
+     <tr><td><div align="right"><a name="602"></a><a href="#602">602</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
+     <tr><td><div align="right"><a name="603"></a><a href="#603">603</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
+     <tr><td><div align="right"><a name="604"></a><a href="#604">604</a></div></td><td class="codeLine"></td></tr>
+     <tr class="covered-by-large-tests popin"><td data-title="1 test covers line 605" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testSeek&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true"><div align="right"><a name="605"></a><a href="#605">605</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">return</span><span class="default">&nbsp;</span><span class="default">$result</span><span class="keyword">;</span></td></tr>
+     <tr class="warning"><td><div align="right"><a name="606"></a><a href="#606">606</a></div></td><td class="codeLine"><span class="keyword">}</span></td></tr>
 
     </tbody>
    </table>
@@ -976,7 +1004,7 @@
      <span class="warning"><strong>Dead Code</strong></span>
     </p>
     <p>
-     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 8.0.2</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.3</a> with <a href="https://xdebug.org/">Xdebug 2.9.2</a> and <a href="https://phpunit.de/">PHPUnit 9.2.6</a> at Fri Jul 24 11:28:46 UTC 2020.</small>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 8.0.2</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.3</a> with <a href="https://xdebug.org/">Xdebug 2.9.2</a> and <a href="https://phpunit.de/">PHPUnit 9.2.6</a> at Fri Jul 24 11:33:00 UTC 2020.</small>
     </p>
     <a title="Back to the top" id="toplink" href="#">
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M12 11L6 5l-6 6h12z"/></svg>

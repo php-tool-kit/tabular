@@ -13,6 +13,7 @@ use function ptk\tabular\get_lines;
 use function ptk\tabular\merge_cols;
 use function ptk\tabular\merge_lines;
 use function ptk\tabular\read_csv;
+use function ptk\tabular\seek;
 use function ptk\tabular\sort;
 use function ptk\tabular\write_csv;
 
@@ -586,5 +587,18 @@ class TabularTest extends TestCase
             [3, 'Paul', 12]
         ];
         $this->assertEquals($expected, read_csv($handle, ';', false));
+    }
+    
+    public function testSeek()
+    {
+        $filter = function(array $line): bool {
+            if ($line['age'] > 20) {
+                return true;
+            }
+            return false;
+        };
+
+        $expected = [0,1];
+        $this->assertEquals($expected, seek($this->sample1, $filter));
     }
 }
