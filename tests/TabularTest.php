@@ -5,6 +5,7 @@ use function ptk\tabular\check_structure;
 use function ptk\tabular\col_names;
 use function ptk\tabular\del_cols;
 use function ptk\tabular\del_lines;
+use function ptk\tabular\duplicates;
 use function ptk\tabular\filter;
 use function ptk\tabular\get_col_range;
 use function ptk\tabular\get_cols;
@@ -523,14 +524,14 @@ class TabularTest extends TestCase
         ];
         $this->assertEquals($expected, filter($this->sample1, $filter, false));
     }
-    
+
     public function testReadCsv()
     {
         $handle = fopen('./tests/assets/sample.csv', 'r');
-        
+
         $this->assertEquals($this->sample1, read_csv($handle, ';'));
     }
-    
+
     public function testReadCsvNoHead()
     {
         $handle = fopen('./tests/assets/sample_1.csv', 'r');
@@ -539,17 +540,17 @@ class TabularTest extends TestCase
             [2, 'Mary', 37],
             [3, 'Paul', 12]
         ];
-        
+
         $this->assertEquals($expected, read_csv($handle, ';', false));
     }
-    
+
     public function testReadCsvSkipLines()
     {
         $handle = fopen('./tests/assets/sample_2.csv', 'r');
-        
+
         $this->assertEquals($this->sample1, read_csv($handle, ';', true, 2));
     }
-    
+
     public function testReadCsvNoHeadAndSkipLines()
     {
         $handle = fopen('./tests/assets/sample_3.csv', 'r');
@@ -558,28 +559,28 @@ class TabularTest extends TestCase
             [2, 'Mary', 37],
             [3, 'Paul', 12]
         ];
-        
+
         $this->assertEquals($expected, read_csv($handle, ';', false, 2));
     }
-    
+
     public function testWriteCsv()
     {
         $filename = './tests/assets/output1.csv';
         $handle = fopen($filename, 'w');
         write_csv($handle, $this->sample1, ';');
         fclose($handle);
-        
+
         $handle = fopen($filename, 'r');
         $this->assertEquals($this->sample1, read_csv($handle, ';'));
     }
-    
+
     public function testWriteCsvNoHead()
     {
         $filename = './tests/assets/output2.csv';
         $handle = fopen($filename, 'w');
         write_csv($handle, $this->sample1, ';', false);
         fclose($handle);
-        
+
         $handle = fopen($filename, 'r');
         $expected = [
             [1, 'John', 39],
@@ -588,7 +589,7 @@ class TabularTest extends TestCase
         ];
         $this->assertEquals($expected, read_csv($handle, ';', false));
     }
-    
+
     public function testSeek()
     {
         $filter = function(array $line): bool {
@@ -598,7 +599,49 @@ class TabularTest extends TestCase
             return false;
         };
 
-        $expected = [0,1];
+        $expected = [0, 1];
         $this->assertEquals($expected, seek($this->sample1, $filter));
+    }
+
+    public function testDuplicatesWithTypeTest()
+    {
+        
+        $data = [
+            [1, 2, 3],
+            [2, 3, 4],
+            [3, 4, 5],
+            [4, 5, 6],
+            ["1", 2, 3],
+            [1, 2, 3],
+            [4, 5, 6]
+        ];
+        
+        $expected = [
+            0 => [5],
+            3 => [6]
+        ];
+        
+        $this->assertEquals($expected, duplicates($data));
+    }
+
+    public function testDuplicatesNoTypeTest()
+    {
+        
+        $data = [
+            [1, 2, 3],
+            [2, 3, 4],
+            [3, 4, 5],
+            [4, 5, 6],
+            ["1", 2, 3],
+            [1, 2, 3],
+            [4, 5, 6]
+        ];
+        
+        $expected = [
+            0 => [4, 5],
+            3 => [6]
+        ];
+        
+        $this->assertEquals($expected, duplicates($data, false));
     }
 }
