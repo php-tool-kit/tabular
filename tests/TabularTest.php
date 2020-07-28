@@ -16,6 +16,7 @@ use function ptk\tabular\merge_lines;
 use function ptk\tabular\read_csv;
 use function ptk\tabular\seek;
 use function ptk\tabular\sort;
+use function ptk\tabular\sum;
 use function ptk\tabular\write_csv;
 
 /**
@@ -72,6 +73,20 @@ class TabularTest extends TestCase
         [
             'sex' => 'm',
             'adult' => false
+        ]
+    ];
+    protected array $sample4 = [
+        [
+            'field1' => 1,
+            'field2' => 10
+        ],
+        [
+            'field1' => 2,
+            'field2' => 20
+        ],
+        [
+            'field1' => 3,
+            'field2' => 30
         ]
     ];
 
@@ -605,7 +620,7 @@ class TabularTest extends TestCase
 
     public function testDuplicatesWithTypeTest()
     {
-        
+
         $data = [
             [1, 2, 3],
             [2, 3, 4],
@@ -615,18 +630,18 @@ class TabularTest extends TestCase
             [1, 2, 3],
             [4, 5, 6]
         ];
-        
+
         $expected = [
             0 => [5],
             3 => [6]
         ];
-        
+
         $this->assertEquals($expected, duplicates($data));
     }
 
     public function testDuplicatesNoTypeTest()
     {
-        
+
         $data = [
             [1, 2, 3],
             [2, 3, 4],
@@ -636,12 +651,25 @@ class TabularTest extends TestCase
             [1, 2, 3],
             [4, 5, 6]
         ];
-        
+
         $expected = [
             0 => [4, 5],
             3 => [6]
         ];
-        
+
         $this->assertEquals($expected, duplicates($data, false));
+    }
+
+    public function testSum()
+    {
+        $this->assertEquals([
+            'field1' => 6
+        ], sum($this->sample4, 'field1'));
+    }
+
+    public function testSumFail()
+    {
+        $this->expectException(Exception::class);
+        sum($this->sample4, 'unknow');
     }
 }

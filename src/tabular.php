@@ -688,3 +688,28 @@ function map_cols(array $data, callable $map, string ...$cols): array
 
     return $data;
 }
+
+/**
+ * Soma os valores nas colunas informadas.
+ *
+ * @param array<array> $data
+ * @param string $colNames
+ * @return array<number>
+ * @throws Exception
+ */
+function sum(array $data, string ...$colNames): array
+{
+    $result = [];
+    foreach ($colNames as $colName) {
+        //testa se a coluna existe
+        if (!in_array($colName, col_names($data))) {
+            throw new Exception("A coluna $colName não é uma coluna válida.");
+        }
+        $result[$colName] = 0;
+        foreach ($data as $lines) {
+            $result[$colName] += $lines[$colName];
+        }
+    }
+    
+    return $result;
+}
