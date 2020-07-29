@@ -98,6 +98,9 @@ function check_structure(array $data, bool $check_types = true): bool
 function col_names(array $data): array
 {
     $first_line_key = array_key_first($data);
+    if(is_null($first_line_key)){
+        return [];
+    }
     return array_keys($data[$first_line_key]);
 }
 
@@ -670,7 +673,7 @@ function map_rows(array $data, callable $map): array
  * @param callable $map Uma função que recebe o valor da coluna e o devolve processado.
  * @param string $cols Uma lista com os nomes das colunas para aplicar a função.
  * @return array<array>
- * @todo Implementar
+ * @todo testes
  */
 function map_cols(array $data, callable $map, string ...$cols): array
 {
