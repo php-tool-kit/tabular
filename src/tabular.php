@@ -717,6 +717,14 @@ function sum(array $data, string ...$colNames): array
     return $result;
 }
 
+/**
+ * Altera o nome das colunas.
+ * 
+ * @param array $data
+ * @param string $col_names
+ * @return array
+ * @throws Exception
+ */
 function set_col_names(array $data, string ...$col_names): array
 {
     $new_data = [];
