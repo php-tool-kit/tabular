@@ -127,6 +127,11 @@ class TabularTest extends TestCase
     {
         $this->assertEquals(array_keys($this->sample1[0]), col_names($this->sample1));
     }
+    
+    public function testColNamesEmpty()
+    {
+        $this->assertEquals([], col_names([]));
+    }
 
     public function testGetCols()
     {
@@ -671,5 +676,27 @@ class TabularTest extends TestCase
     {
         $this->expectException(Exception::class);
         sum($this->sample4, 'unknow');
+    }
+    
+    public function testSetColNames()
+    {
+        $col_names = [
+            'codigo',
+            'nome',
+            'idade'
+        ];
+        $data = ptk\tabular\set_col_names($this->sample1, ...$col_names);
+        
+        $this->assertEquals($col_names, col_names($data));
+    }
+    
+    public function testSetColNamesFail()
+    {
+        $col_names = [
+            'codigo',
+            'idade'
+        ];
+        $this->expectException(Exception::class);
+        $data = ptk\tabular\set_col_names($this->sample1, ...$col_names);
     }
 }

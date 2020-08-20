@@ -98,7 +98,7 @@ function check_structure(array $data, bool $check_types = true): bool
 function col_names(array $data): array
 {
     $first_line_key = array_key_first($data);
-    if(is_null($first_line_key)){
+    if (is_null($first_line_key)) {
         return [];
     }
     return array_keys($data[$first_line_key]);
@@ -715,4 +715,25 @@ function sum(array $data, string ...$colNames): array
     }
     
     return $result;
+}
+
+function set_col_names(array $data, string ...$col_names): array
+{
+    $new_data = [];
+    $original = col_names($data);
+    $original_num_cols = sizeof($original);
+    $new_num_cols = sizeof($col_names);
+    if ($original_num_cols !== $new_num_cols) {
+        throw new Exception(
+            "A quantidade de novas colunas [$new_num_cols] é diferente da quantidade original [$original_num_cols]."
+        );
+    }
+    
+    foreach ($data as $i => $line) {
+        foreach ($original as $j => $value) {
+            $new_data[$i][$col_names[$j]] = $value;
+        }
+    }
+    
+    return $new_data;
 }
