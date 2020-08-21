@@ -121,6 +121,18 @@ Funções</h2></td></tr>
 <tr class="separator:a4cf1e5268bc7221216dff63ca8e58a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d588cc12eb8de349f8a880a4a8d8acf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceptk_1_1tabular.html#a8d588cc12eb8de349f8a880a4a8d8acf">seek</a> (array $data, callable $<a class="el" href="namespaceptk_1_1tabular.html#a6ca44b11fdc840b5527e495ee1d0e1be">filter</a>)</td></tr>
 <tr class="separator:a8d588cc12eb8de349f8a880a4a8d8acf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03a19c564f4c7f35a15af11ec5edb303"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceptk_1_1tabular.html#a03a19c564f4c7f35a15af11ec5edb303">duplicates</a> (array $data, bool $types=true)</td></tr>
+<tr class="separator:a03a19c564f4c7f35a15af11ec5edb303"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a158853363345988199a3ee040253a6f9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceptk_1_1tabular.html#a158853363345988199a3ee040253a6f9">map_rows</a> (array $data, callable $map)</td></tr>
+<tr class="separator:a158853363345988199a3ee040253a6f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a624392e3f54dad2fe32e2da97956df27"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceptk_1_1tabular.html#a624392e3f54dad2fe32e2da97956df27">map_cols</a> (array $data, callable $map, string ... $cols)</td></tr>
+<tr class="separator:a624392e3f54dad2fe32e2da97956df27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eaebc45655c47a25a490911a7e0f2dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceptk_1_1tabular.html#a2eaebc45655c47a25a490911a7e0f2dd">sum_cols</a> (array $data, string ... $colNames)</td></tr>
+<tr class="separator:a2eaebc45655c47a25a490911a7e0f2dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af27f64fe2726a8e252526ee034826a1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceptk_1_1tabular.html#af27f64fe2726a8e252526ee034826a1a">sum_lines</a> (array $data, string $totalName, string ... $colNames)</td></tr>
+<tr class="separator:af27f64fe2726a8e252526ee034826a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4fc613a8507ab931a662bbdb2988587"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceptk_1_1tabular.html#ac4fc613a8507ab931a662bbdb2988587">set_col_names</a> (array $data, string ... $<a class="el" href="namespaceptk_1_1tabular.html#a77d6a4b1e2ccf9bccc413da6b9153552">col_names</a>)</td></tr>
+<tr class="separator:ac4fc613a8507ab931a662bbdb2988587"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
 <div class="textblock"><p>Biblioteca para manipulação de dados tabulares, oferecendo funções complementares às funções de array da biblioteca padrão do PHP.</p>
@@ -199,7 +211,7 @@ Funções</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>array&lt;string&gt; </dd></dl>
 
-<p class="reference">Referenciado(a) por <a class="el" href="namespaceptk_1_1tabular.html#a061cf0e67fb11b0e7dea8effae7ed5b3">ptk\tabular\check_structure()</a>, <a class="el" href="namespaceptk_1_1tabular.html#af4623dfe4907e3b8a25165c0091bf8e6">ptk\tabular\del_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a399b8eac5b41e548b3295b4f0ed566d7">ptk\tabular\get_col_range()</a>, <a class="el" href="namespaceptk_1_1tabular.html#af88b9026b0640105f00a1a77aba1fda5">ptk\tabular\get_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a0f79546f05ee2d45b08565ab9a00f495">ptk\tabular\merge_lines()</a>, <a class="el" href="namespaceptk_1_1tabular.html#aa8a1d44546455619a6912d4cc471501c">ptk\tabular\sort()</a> e <a class="el" href="namespaceptk_1_1tabular.html#a4cf1e5268bc7221216dff63ca8e58a58">ptk\tabular\write_csv()</a>.</p>
+<p class="reference">Referenciado(a) por <a class="el" href="namespaceptk_1_1tabular.html#a061cf0e67fb11b0e7dea8effae7ed5b3">ptk\tabular\check_structure()</a>, <a class="el" href="namespaceptk_1_1tabular.html#af4623dfe4907e3b8a25165c0091bf8e6">ptk\tabular\del_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a399b8eac5b41e548b3295b4f0ed566d7">ptk\tabular\get_col_range()</a>, <a class="el" href="namespaceptk_1_1tabular.html#af88b9026b0640105f00a1a77aba1fda5">ptk\tabular\get_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a624392e3f54dad2fe32e2da97956df27">ptk\tabular\map_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a0f79546f05ee2d45b08565ab9a00f495">ptk\tabular\merge_lines()</a>, <a class="el" href="namespaceptk_1_1tabular.html#ac4fc613a8507ab931a662bbdb2988587">ptk\tabular\set_col_names()</a>, <a class="el" href="namespaceptk_1_1tabular.html#aa8a1d44546455619a6912d4cc471501c">ptk\tabular\sort()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a2eaebc45655c47a25a490911a7e0f2dd">ptk\tabular\sum_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#af27f64fe2726a8e252526ee034826a1a">ptk\tabular\sum_lines()</a> e <a class="el" href="namespaceptk_1_1tabular.html#a4cf1e5268bc7221216dff63ca8e58a58">ptk\tabular\write_csv()</a>.</p>
 
 </div>
 </div>
@@ -287,6 +299,44 @@ Funções</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a03a19c564f4c7f35a15af11ec5edb303"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03a19c564f4c7f35a15af11ec5edb303">&#9670;&nbsp;</a></span>duplicates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ptk\tabular\duplicates </td>
+          <td>(</td>
+          <td class="paramtype">array&#160;</td>
+          <td class="paramname"><em>$data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>$types</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Encontra as linhas duplicadas, ou seja, que tem os mesmos valores de dados nas colunas.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype"></td><td class="paramname">array&lt;array&gt;</td><td>$data </td></tr>
+    <tr><td class="paramtype">bool</td><td class="paramname">$type</td><td>Se true (o padrão), faz uma checagem nos tipos dos dados também para definir a duplicata. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>array&lt;int&gt; Retorna uma lista onde o índice é a linha de referência e o valor é uma lista com as demais linhas duplicadas. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Atividades futuras:</a></b></dt><dd>Implementar </dd></dl>
 
 </div>
 </div>
@@ -532,6 +582,93 @@ Funções</h2></td></tr>
 
 </div>
 </div>
+<a id="a624392e3f54dad2fe32e2da97956df27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a624392e3f54dad2fe32e2da97956df27">&#9670;&nbsp;</a></span>map_cols()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ptk\tabular\map_cols </td>
+          <td>(</td>
+          <td class="paramtype">array&#160;</td>
+          <td class="paramname"><em>$data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">callable&#160;</td>
+          <td class="paramname"><em>$map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string ...&#160;</td>
+          <td class="paramname"><em>$cols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Aplica uma função em cada uma das células das colunas indicadas.</p>
+<p>Útil para formatar valores, por exemplo.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype"></td><td class="paramname">array&lt;array&gt;</td><td>$data </td></tr>
+    <tr><td class="paramtype">callable</td><td class="paramname">$map</td><td>Uma função que recebe o valor da coluna e o devolve processado. </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$cols</td><td>Uma lista com os nomes das colunas para aplicar a função. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>array&lt;array&gt; </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Atividades futuras:</a></b></dt><dd>testes </dd></dl>
+
+<p class="reference">Referencias <a class="el" href="namespaceptk_1_1tabular.html#a77d6a4b1e2ccf9bccc413da6b9153552">ptk\tabular\col_names()</a>.</p>
+
+</div>
+</div>
+<a id="a158853363345988199a3ee040253a6f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a158853363345988199a3ee040253a6f9">&#9670;&nbsp;</a></span>map_rows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ptk\tabular\map_rows </td>
+          <td>(</td>
+          <td class="paramtype">array&#160;</td>
+          <td class="paramname"><em>$data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">callable&#160;</td>
+          <td class="paramname"><em>$map</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Aplica uma função em todas as linhas.</p>
+<p>É útil para acrescentar ou modificar colunas de totais, por exemplo.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype"></td><td class="paramname">array&lt;array&gt;</td><td>$data </td></tr>
+    <tr><td class="paramtype">callable</td><td class="paramname">$map</td><td>Uma função que deve receber um array representando a linha e deve devolver outro array representando a linha processada. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>array&lt;array&gt; </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Atividades futuras:</a></b></dt><dd>Implementar </dd></dl>
+
+</div>
+</div>
 <a id="adf1bee54d4bc8dc78f840dc27f0ae22c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adf1bee54d4bc8dc78f840dc27f0ae22c">&#9670;&nbsp;</a></span>merge_cols()</h2>
 
@@ -690,6 +827,51 @@ Funções</h2></td></tr>
 
 </div>
 </div>
+<a id="ac4fc613a8507ab931a662bbdb2988587"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4fc613a8507ab931a662bbdb2988587">&#9670;&nbsp;</a></span>set_col_names()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ptk\tabular\set_col_names </td>
+          <td>(</td>
+          <td class="paramtype">array&#160;</td>
+          <td class="paramname"><em>$data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string ...&#160;</td>
+          <td class="paramname"><em>$col_names</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Altera o nome das colunas.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$data</td><td></td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$col_names</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>array </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">Exception</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">Referencias <a class="el" href="namespaceptk_1_1tabular.html#a77d6a4b1e2ccf9bccc413da6b9153552">ptk\tabular\col_names()</a>.</p>
+
+</div>
+</div>
 <a id="aa8a1d44546455619a6912d4cc471501c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa8a1d44546455619a6912d4cc471501c">&#9670;&nbsp;</a></span>sort()</h2>
 
@@ -727,6 +909,103 @@ Funções</h2></td></tr>
 <dl class="exception"><dt>Exceções</dt><dd>
   <table class="exception">
     <tr><td class="paramname">Exception</td><td><a class="el" href="">array_multisort()  <a href="https://www.php.net/manual/pt_BR/function.array-multisort.php#100534">https://www.php.net/manual/pt_BR/function.array-multisort.php#100534</a> Comentário de <a href="#" onclick="location.href='mai'+'lto:'+'jim'+'po'+'z@j'+'im'+'poz'+'.c'+'om'; return false;">jimpo<span style="display: none;">.nosp@m.</span>z@ji<span style="display: none;">.nosp@m.</span>mpoz.<span style="display: none;">.nosp@m.</span>com</a> </a></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">Referencias <a class="el" href="namespaceptk_1_1tabular.html#a77d6a4b1e2ccf9bccc413da6b9153552">ptk\tabular\col_names()</a>.</p>
+
+</div>
+</div>
+<a id="a2eaebc45655c47a25a490911a7e0f2dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eaebc45655c47a25a490911a7e0f2dd">&#9670;&nbsp;</a></span>sum_cols()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ptk\tabular\sum_cols </td>
+          <td>(</td>
+          <td class="paramtype">array&#160;</td>
+          <td class="paramname"><em>$data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string ...&#160;</td>
+          <td class="paramname"><em>$colNames</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Soma os valores nas colunas informadas.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype"></td><td class="paramname">array&lt;array&gt;</td><td>$data </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$colNames</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>array&lt;number&gt; </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">Exception</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">Referencias <a class="el" href="namespaceptk_1_1tabular.html#a77d6a4b1e2ccf9bccc413da6b9153552">ptk\tabular\col_names()</a>.</p>
+
+</div>
+</div>
+<a id="af27f64fe2726a8e252526ee034826a1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af27f64fe2726a8e252526ee034826a1a">&#9670;&nbsp;</a></span>sum_lines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ptk\tabular\sum_lines </td>
+          <td>(</td>
+          <td class="paramtype">array&#160;</td>
+          <td class="paramname"><em>$data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>$totalName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string ...&#160;</td>
+          <td class="paramname"><em>$colNames</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Soma as colunas, linha a linha.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype"></td><td class="paramname">array&lt;mixed&gt;</td><td>$data </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$totalName</td><td>Nome da coluna que vai armazenar o total. </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$colNames</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>array&lt;number&gt; </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">Exception</td><td></td></tr>
   </table>
   </dd>
 </dl>

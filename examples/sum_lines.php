@@ -1,11 +1,11 @@
 <?php
 
-use function ptk\tabular\sum;
+use function ptk\tabular\sum_lines;
 
 /**
- * Exemplos para ptk\tabular\sum()
+ * Exemplos para ptk\tabular\sum_lines()
  * 
- * @see ptk\tabular\sum()
+ * @see ptk\tabular\sum_lines()
  */
 require 'vendor/autoload.php';
 
@@ -24,4 +24,4 @@ $data = [
     ]
 ];
 
-print_r(sum($data, 'field1', 'field2'));
+print_r(sum_lines($data, 'total','field1', 'field2'));

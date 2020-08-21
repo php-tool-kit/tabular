@@ -15,8 +15,10 @@ use function ptk\tabular\merge_cols;
 use function ptk\tabular\merge_lines;
 use function ptk\tabular\read_csv;
 use function ptk\tabular\seek;
+use function ptk\tabular\set_col_names;
 use function ptk\tabular\sort;
-use function ptk\tabular\sum;
+use function ptk\tabular\sum_cols;
+use function ptk\tabular\sum_lines;
 use function ptk\tabular\write_csv;
 
 /**
@@ -127,7 +129,7 @@ class TabularTest extends TestCase
     {
         $this->assertEquals(array_keys($this->sample1[0]), col_names($this->sample1));
     }
-    
+
     public function testColNamesEmpty()
     {
         $this->assertEquals([], col_names([]));
@@ -665,19 +667,19 @@ class TabularTest extends TestCase
         $this->assertEquals($expected, duplicates($data, false));
     }
 
-    public function testSum()
+    public function testSumCols()
     {
         $this->assertEquals([
             'field1' => 6
-        ], sum($this->sample4, 'field1'));
+            ], sum_cols($this->sample4, 'field1'));
     }
 
-    public function testSumFail()
+    public function testSumColsFail()
     {
         $this->expectException(Exception::class);
-        sum($this->sample4, 'unknow');
+        sum_cols($this->sample4, 'unknow');
     }
-    
+
     public function testSetColNames()
     {
         $col_names = [
@@ -685,11 +687,11 @@ class TabularTest extends TestCase
             'nome',
             'idade'
         ];
-        $data = ptk\tabular\set_col_names($this->sample1, ...$col_names);
-        
+        $data = set_col_names($this->sample1, ...$col_names);
+
         $this->assertEquals($col_names, col_names($data));
     }
-    
+
     public function testSetColNamesFail()
     {
         $col_names = [
@@ -697,6 +699,45 @@ class TabularTest extends TestCase
             'idade'
         ];
         $this->expectException(Exception::class);
-        $data = ptk\tabular\set_col_names($this->sample1, ...$col_names);
+        $data = set_col_names($this->sample1, ...$col_names);
+    }
+
+    public function testSumLines()
+    {
+        $data = [
+            [
+                'f1' => 1,
+                'f2' => 10
+            ],
+            [
+                'f1' => 2,
+                'f2' => 20
+            ],
+            [
+                'f1' => 3,
+                'f2' => 30
+            ]
+        ];
+        $this->assertEquals([['total' => 11], ['total' => 22], ['total' => 33]], sum_lines($data, 'total', 'f1', 'f2'));
+    }
+    
+    public function testSumLinesFail()
+    {
+        $data = [
+            [
+                'f1' => 1,
+                'f2' => 10
+            ],
+            [
+                'f1' => 2,
+                'f2' => 20
+            ],
+            [
+                'f1' => 3,
+                'f2' => 30
+            ]
+        ];
+        $this->expectException(Exception::class);
+        sum_lines($data, 'total', 'f1', 'unknow');
     }
 }

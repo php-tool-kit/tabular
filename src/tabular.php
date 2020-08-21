@@ -700,7 +700,7 @@ function map_cols(array $data, callable $map, string ...$cols): array
  * @return array<number>
  * @throws Exception
  */
-function sum(array $data, string ...$colNames): array
+function sum_cols(array $data, string ...$colNames): array
 {
     $result = [];
     foreach ($colNames as $colName) {
@@ -718,8 +718,34 @@ function sum(array $data, string ...$colNames): array
 }
 
 /**
+ * Soma as colunas, linha a linha.
+ *
+ * @param array<mixed> $data
+ * @param string $totalName Nome da coluna que vai armazenar o total.
+ * @param string $colNames
+ * @return array<number>
+ * @throws Exception
+ */
+function sum_lines(array $data, string $totalName, string ...$colNames): array
+{
+    $result = [];
+    foreach ($data as $index => $line) {
+        $sum = 0;
+        foreach ($colNames as $colName) {
+            if (!in_array($colName, col_names($data))) {
+                throw new Exception("A coluna $colName não é uma coluna válida.");
+            }
+            $sum += $data[$index][$colName];
+        }
+        $result[$index][$totalName] = $sum;
+    }
+    
+    return $result;
+}
+
+/**
  * Altera o nome das colunas.
- * 
+ *
  * @param array $data
  * @param string $col_names
  * @return array
