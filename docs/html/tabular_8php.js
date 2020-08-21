@@ -15,6 +15,7 @@ var tabular_8php =
     [ "merge_cols", "tabular_8php.html#adf1bee54d4bc8dc78f840dc27f0ae22c", null ],
     [ "merge_lines", "tabular_8php.html#a0f79546f05ee2d45b08565ab9a00f495", null ],
     [ "read_csv", "tabular_8php.html#ad922f7b58f141a16581be1193dab1107", null ],
+    [ "reorder_cols", "tabular_8php.html#a1877865d947b369e7e0709f02ddd4b40", null ],
     [ "seek", "tabular_8php.html#a8d588cc12eb8de349f8a880a4a8d8acf", null ],
     [ "set_col_names", "tabular_8php.html#ac4fc613a8507ab931a662bbdb2988587", null ],
     [ "sort", "tabular_8php.html#aa8a1d44546455619a6912d4cc471501c", null ],

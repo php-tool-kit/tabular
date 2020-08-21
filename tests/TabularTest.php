@@ -16,6 +16,7 @@ use function ptk\tabular\map_rows;
 use function ptk\tabular\merge_cols;
 use function ptk\tabular\merge_lines;
 use function ptk\tabular\read_csv;
+use function ptk\tabular\reorder_cols;
 use function ptk\tabular\seek;
 use function ptk\tabular\set_col_names;
 use function ptk\tabular\sort;
@@ -773,7 +774,7 @@ class TabularTest extends TestCase
 
         $this->assertEquals($expected, map_rows($this->sample1, $mapfn));
     }
-    
+
     public function testMapCols()
     {
         $mapfn = function($cell) {
@@ -800,7 +801,7 @@ class TabularTest extends TestCase
 
         $this->assertEquals($expected, map_cols($this->sample1, $mapfn, 'name'));
     }
-    
+
     public function testMapColsFail()
     {
         $mapfn = function($cell) {
@@ -827,5 +828,33 @@ class TabularTest extends TestCase
 
         $this->expectException(Exception::class);
         map_cols($this->sample1, $mapfn, 'unknow');
+    }
+
+    public function testReorderCols()
+    {
+        $expected = [
+            [
+                'name' => 'John',
+                'age' => 39,
+                'id' => 1
+            ],
+            [
+                'name' => 'Mary',
+                'age' => 37,
+                'id' => 2
+            ],
+            [
+                'name' => 'Paul',
+                'age' => 12,
+                'id' => 3
+            ]
+        ];
+        $this->assertEquals($expected, reorder_cols($this->sample1, 'name', 'age', 'id'));
+    }
+    
+    public function testReorderColsFail()
+    {
+        $this->expectException(Exception::class);
+        reorder_cols($this->sample1, 'name', 'age', 'unknow');
     }
 }

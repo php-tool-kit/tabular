@@ -778,3 +778,32 @@ function set_col_names(array $data, string ...$col_names): array
     
     return $new_data;
 }
+
+/**
+ * Altera a ordem das colunas.
+ *
+ * Também possibilita um recorte de colunas em ordem específica.
+ *
+ * @param array<mixed> $data
+ * @param string $cols As colunas, na ordem desejada.
+ * @return array<mixed>
+ * @throws Exception
+ * @see ptk\tabular\get_cols()
+ * @see ptk\tabular\get_col_range()
+ */
+function reorder_cols(array $data, string ...$cols): array
+{
+    $result = [];
+    
+    foreach ($data as $index => $line) {
+        foreach ($cols as $colName) {
+            if (!in_array($colName, col_names($data))) {
+                throw new Exception("A coluna $colName não é uma coluna válida.");
+            }
+            
+            $result[$index][$colName] = $line[$colName];
+        }
+    }
+    
+    return $result;
+}

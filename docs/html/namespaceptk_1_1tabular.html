@@ -133,6 +133,8 @@ Funções</h2></td></tr>
 <tr class="separator:af27f64fe2726a8e252526ee034826a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4fc613a8507ab931a662bbdb2988587"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceptk_1_1tabular.html#ac4fc613a8507ab931a662bbdb2988587">set_col_names</a> (array $data, string ... $<a class="el" href="namespaceptk_1_1tabular.html#a77d6a4b1e2ccf9bccc413da6b9153552">col_names</a>)</td></tr>
 <tr class="separator:ac4fc613a8507ab931a662bbdb2988587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1877865d947b369e7e0709f02ddd4b40"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceptk_1_1tabular.html#a1877865d947b369e7e0709f02ddd4b40">reorder_cols</a> (array $data, string ... $cols)</td></tr>
+<tr class="separator:a1877865d947b369e7e0709f02ddd4b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
 <div class="textblock"><p>Biblioteca para manipulação de dados tabulares, oferecendo funções complementares às funções de array da biblioteca padrão do PHP.</p>
@@ -211,7 +213,7 @@ Funções</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>array&lt;string&gt; </dd></dl>
 
-<p class="reference">Referenciado(a) por <a class="el" href="namespaceptk_1_1tabular.html#a061cf0e67fb11b0e7dea8effae7ed5b3">ptk\tabular\check_structure()</a>, <a class="el" href="namespaceptk_1_1tabular.html#af4623dfe4907e3b8a25165c0091bf8e6">ptk\tabular\del_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a399b8eac5b41e548b3295b4f0ed566d7">ptk\tabular\get_col_range()</a>, <a class="el" href="namespaceptk_1_1tabular.html#af88b9026b0640105f00a1a77aba1fda5">ptk\tabular\get_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a624392e3f54dad2fe32e2da97956df27">ptk\tabular\map_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a0f79546f05ee2d45b08565ab9a00f495">ptk\tabular\merge_lines()</a>, <a class="el" href="namespaceptk_1_1tabular.html#ac4fc613a8507ab931a662bbdb2988587">ptk\tabular\set_col_names()</a>, <a class="el" href="namespaceptk_1_1tabular.html#aa8a1d44546455619a6912d4cc471501c">ptk\tabular\sort()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a2eaebc45655c47a25a490911a7e0f2dd">ptk\tabular\sum_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#af27f64fe2726a8e252526ee034826a1a">ptk\tabular\sum_lines()</a> e <a class="el" href="namespaceptk_1_1tabular.html#a4cf1e5268bc7221216dff63ca8e58a58">ptk\tabular\write_csv()</a>.</p>
+<p class="reference">Referenciado(a) por <a class="el" href="namespaceptk_1_1tabular.html#a061cf0e67fb11b0e7dea8effae7ed5b3">ptk\tabular\check_structure()</a>, <a class="el" href="namespaceptk_1_1tabular.html#af4623dfe4907e3b8a25165c0091bf8e6">ptk\tabular\del_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a399b8eac5b41e548b3295b4f0ed566d7">ptk\tabular\get_col_range()</a>, <a class="el" href="namespaceptk_1_1tabular.html#af88b9026b0640105f00a1a77aba1fda5">ptk\tabular\get_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a624392e3f54dad2fe32e2da97956df27">ptk\tabular\map_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a0f79546f05ee2d45b08565ab9a00f495">ptk\tabular\merge_lines()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a1877865d947b369e7e0709f02ddd4b40">ptk\tabular\reorder_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#ac4fc613a8507ab931a662bbdb2988587">ptk\tabular\set_col_names()</a>, <a class="el" href="namespaceptk_1_1tabular.html#aa8a1d44546455619a6912d4cc471501c">ptk\tabular\sort()</a>, <a class="el" href="namespaceptk_1_1tabular.html#a2eaebc45655c47a25a490911a7e0f2dd">ptk\tabular\sum_cols()</a>, <a class="el" href="namespaceptk_1_1tabular.html#af27f64fe2726a8e252526ee034826a1a">ptk\tabular\sum_lines()</a> e <a class="el" href="namespaceptk_1_1tabular.html#a4cf1e5268bc7221216dff63ca8e58a58">ptk\tabular\write_csv()</a>.</p>
 
 </div>
 </div>
@@ -785,6 +787,55 @@ Funções</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>array&lt;array&gt; <a class="el" href="">fopen()  todo 1. </a></dd></dl>
+
+</div>
+</div>
+<a id="a1877865d947b369e7e0709f02ddd4b40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1877865d947b369e7e0709f02ddd4b40">&#9670;&nbsp;</a></span>reorder_cols()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ptk\tabular\reorder_cols </td>
+          <td>(</td>
+          <td class="paramtype">array&#160;</td>
+          <td class="paramname"><em>$data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string ...&#160;</td>
+          <td class="paramname"><em>$cols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Altera a ordem das colunas.</p>
+<p>Também possibilita um recorte de colunas em ordem específica.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype"></td><td class="paramname">array&lt;mixed&gt;</td><td>$data </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$cols</td><td>As colunas, na ordem desejada. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>array&lt;mixed&gt; </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">Exception</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>Veja também</dt><dd><a class="el" href="namespaceptk.html">ptk</a>\tabular\get_cols() </dd>
+<dd>
+<a class="el" href="namespaceptk.html">ptk</a>\tabular\get_col_range() </dd></dl>
+
+<p class="reference">Referencias <a class="el" href="namespaceptk_1_1tabular.html#a77d6a4b1e2ccf9bccc413da6b9153552">ptk\tabular\col_names()</a>.</p>
 
 </div>
 </div>
