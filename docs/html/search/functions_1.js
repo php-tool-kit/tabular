@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['del_5fcols_31',['del_cols',['../namespaceptk_1_1tabular.html#af4623dfe4907e3b8a25165c0091bf8e6',1,'ptk::tabular']]],
-  ['del_5flines_32',['del_lines',['../namespaceptk_1_1tabular.html#a7abd8e406eac920b2a77903d686e20e6',1,'ptk::tabular']]],
-  ['duplicates_33',['duplicates',['../namespaceptk_1_1tabular.html#a03a19c564f4c7f35a15af11ec5edb303',1,'ptk::tabular']]]
+  ['check_5fstructure_31',['check_structure',['../namespaceptk_1_1tabular.html#a061cf0e67fb11b0e7dea8effae7ed5b3',1,'ptk::tabular']]],
+  ['col_5fnames_32',['col_names',['../namespaceptk_1_1tabular.html#a77d6a4b1e2ccf9bccc413da6b9153552',1,'ptk::tabular']]]
 ];

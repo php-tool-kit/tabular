@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['map_5fcols_39',['map_cols',['../namespaceptk_1_1tabular.html#a624392e3f54dad2fe32e2da97956df27',1,'ptk::tabular']]],
-  ['map_5frows_40',['map_rows',['../namespaceptk_1_1tabular.html#a158853363345988199a3ee040253a6f9',1,'ptk::tabular']]],
-  ['merge_5fcols_41',['merge_cols',['../namespaceptk_1_1tabular.html#adf1bee54d4bc8dc78f840dc27f0ae22c',1,'ptk::tabular']]],
-  ['merge_5flines_42',['merge_lines',['../namespaceptk_1_1tabular.html#a0f79546f05ee2d45b08565ab9a00f495',1,'ptk::tabular']]]
+  ['get_5fcol_5frange_37',['get_col_range',['../namespaceptk_1_1tabular.html#a399b8eac5b41e548b3295b4f0ed566d7',1,'ptk::tabular']]],
+  ['get_5fcols_38',['get_cols',['../namespaceptk_1_1tabular.html#af88b9026b0640105f00a1a77aba1fda5',1,'ptk::tabular']]],
+  ['get_5fline_5frange_39',['get_line_range',['../namespaceptk_1_1tabular.html#a23686b95dc64e9c39e60b4c35a6bd9ad',1,'ptk::tabular']]],
+  ['get_5flines_40',['get_lines',['../namespaceptk_1_1tabular.html#a95fd3a99a9bec4ecf2611083c192588e',1,'ptk::tabular']]]
 ];

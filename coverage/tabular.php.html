@@ -53,7 +53,7 @@
        </div>
 </td>
        <td class="success small"><div align="right">100.00%</div></td>
-       <td class="success small"><div align="right">22&nbsp;/&nbsp;22</div></td>
+       <td class="success small"><div align="right">23&nbsp;/&nbsp;23</div></td>
        <td class="success small"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></td>
        <td class="success big">       <div class="progress">
          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" style="width: 100.00%">
@@ -62,7 +62,7 @@
        </div>
 </td>
        <td class="success small"><div align="right">100.00%</div></td>
-       <td class="success small"><div align="right">220&nbsp;/&nbsp;220</div></td>
+       <td class="success small"><div align="right">228&nbsp;/&nbsp;228</div></td>
       </tr>
 
       <tr>
@@ -525,6 +525,27 @@
 </td>
        <td class="success small"><div align="right">100.00%</div></td>
        <td class="success small"><div align="right">7&nbsp;/&nbsp;7</div></td>
+      </tr>
+
+      <tr>
+       <td class="success" colspan="4"><a href="#820"><abbr title="append_col(array $data, string $colName, array $colData): array">ptk\tabular\append_col</abbr></a></td>
+       <td class="success big">       <div class="progress">
+         <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" style="width: 100.00%">
+           <span class="sr-only">100.00% covered (success)</span>
+         </div>
+       </div>
+</td>
+       <td class="success small"><div align="right">100.00%</div></td>
+       <td class="success small"><div align="right">1&nbsp;/&nbsp;1</div></td>
+       <td class="success small">3</td>
+       <td class="success big">       <div class="progress">
+         <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" style="width: 100.00%">
+           <span class="sr-only">100.00% covered (success)</span>
+         </div>
+       </div>
+</td>
+       <td class="success small"><div align="right">100.00%</div></td>
+       <td class="success small"><div align="right">8&nbsp;/&nbsp;8</div></td>
       </tr>
 
 
@@ -1342,6 +1363,32 @@
     <tr class=" d-flex"><td  class="col-1 text-right"><a id="807" href="#807">807</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
     <tr class="covered-by-large-tests popin d-flex"><td  data-title="1 test covers line 808" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testReorderCols&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true" class="col-1 text-right"><a id="808" href="#808">808</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">return</span><span class="default">&nbsp;</span><span class="default">$result</span><span class="keyword">;</span></td></tr>
     <tr class="warning d-flex"><td  class="col-1 text-right"><a id="809" href="#809">809</a></td><td class="col-11 codeLine"><span class="keyword">}</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="810" href="#810">810</a></td><td class="col-11 codeLine"></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="811" href="#811">811</a></td><td class="col-11 codeLine"><span class="comment">/**</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="812" href="#812">812</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;*&nbsp;Adiciona&nbsp;uma&nbsp;coluna&nbsp;de&nbsp;dados&nbsp;ao&nbsp;final&nbsp;do&nbsp;data&nbsp;frame&nbsp;quando&nbsp;os&nbsp;dados&nbsp;não&nbsp;estão&nbsp;no&nbsp;formato&nbsp;de&nbsp;dataframe.</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="813" href="#813">813</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;*</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="814" href="#814">814</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;*&nbsp;@param&nbsp;array&lt;mixed&gt;&nbsp;$data</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="815" href="#815">815</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;*&nbsp;@param&nbsp;string&nbsp;$colName</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="816" href="#816">816</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;*&nbsp;@param&nbsp;array&lt;mixed&gt;&nbsp;$colData&nbsp;Os&nbsp;dados&nbsp;no&nbsp;formato&nbsp;de&nbsp;array&nbsp;unidimensional&nbsp;com&nbsp;a&nbsp;mesma&nbsp;quantidade&nbsp;de&nbsp;linhas&nbsp;que</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="817" href="#817">817</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;*&nbsp;o&nbsp;data&nbsp;frame.</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="818" href="#818">818</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;*&nbsp;@return&nbsp;array&lt;mixed&gt;</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="819" href="#819">819</a></td><td class="col-11 codeLine"><span class="comment">&nbsp;*/</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="820" href="#820">820</a></td><td class="col-11 codeLine"><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">append_col</span><span class="keyword">(</span><span class="keyword">array</span><span class="default">&nbsp;</span><span class="default">$data</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">string</span><span class="default">&nbsp;</span><span class="default">$colName</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="keyword">array</span><span class="default">&nbsp;</span><span class="default">$colData</span><span class="keyword">)</span><span class="keyword">:</span><span class="default">&nbsp;</span><span class="keyword">array</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="821" href="#821">821</a></td><td class="col-11 codeLine"><span class="keyword">{</span></td></tr>
+    <tr class="covered-by-large-tests popin d-flex"><td  data-title="2 tests cover line 822" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testAppendCol&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testAppendColFail&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true" class="col-1 text-right"><a id="822" href="#822">822</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$linesDF</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">sizeof</span><span class="keyword">(</span><span class="default">$data</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
+    <tr class="covered-by-large-tests popin d-flex"><td  data-title="2 tests cover line 823" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testAppendCol&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testAppendColFail&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true" class="col-1 text-right"><a id="823" href="#823">823</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$linesNew</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">sizeof</span><span class="keyword">(</span><span class="default">$colData</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
+    <tr class="covered-by-large-tests popin d-flex"><td  data-title="2 tests cover line 824" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testAppendCol&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testAppendColFail&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true" class="col-1 text-right"><a id="824" href="#824">824</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$result</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="keyword">[</span><span class="keyword">]</span><span class="keyword">;</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="825" href="#825">825</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
+    <tr class="covered-by-large-tests popin d-flex"><td  data-title="2 tests cover line 826" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testAppendCol&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testAppendColFail&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true" class="col-1 text-right"><a id="826" href="#826">826</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">if</span><span class="default">&nbsp;</span><span class="keyword">(</span><span class="default">$linesDF</span><span class="default">&nbsp;</span><span class="default">!==</span><span class="default">&nbsp;</span><span class="default">$linesNew</span><span class="keyword">)</span><span class="default">&nbsp;</span><span class="keyword">{</span></td></tr>
+    <tr class="covered-by-large-tests popin d-flex"><td  data-title="1 test covers line 827" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testAppendColFail&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true" class="col-1 text-right"><a id="827" href="#827">827</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">throw</span><span class="default">&nbsp;</span><span class="keyword">new</span><span class="default">&nbsp;</span><span class="default">Exception</span><span class="keyword">(</span><span class="string">&quot;</span><span class="string">Os&nbsp;dados&nbsp;tem&nbsp;</span><span class="string">$linesNew</span><span class="string">&nbsp;linhas,&nbsp;mas&nbsp;o&nbsp;data&nbsp;frame&nbsp;tem&nbsp;</span><span class="string">$linesDF</span><span class="string">&nbsp;linhas.</span><span class="string">&quot;</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="828" href="#828">828</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="829" href="#829">829</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
+    <tr class="covered-by-large-tests popin d-flex"><td  data-title="1 test covers line 830" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testAppendCol&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true" class="col-1 text-right"><a id="830" href="#830">830</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">foreach</span><span class="default">&nbsp;</span><span class="keyword">(</span><span class="default">$data</span><span class="default">&nbsp;</span><span class="keyword">as</span><span class="default">&nbsp;</span><span class="default">$index</span><span class="default">&nbsp;</span><span class="default">=&gt;</span><span class="default">&nbsp;</span><span class="default">$line</span><span class="keyword">)</span><span class="default">&nbsp;</span><span class="keyword">{</span></td></tr>
+    <tr class="covered-by-large-tests popin d-flex"><td  data-title="1 test covers line 831" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testAppendCol&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true" class="col-1 text-right"><a id="831" href="#831">831</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$result</span><span class="keyword">[</span><span class="default">$index</span><span class="keyword">]</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">array_merge</span><span class="keyword">(</span><span class="default">$line</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="keyword">[</span><span class="default">$colName</span><span class="default">&nbsp;</span><span class="default">=&gt;</span><span class="default">&nbsp;</span><span class="default">$colData</span><span class="keyword">[</span><span class="default">$index</span><span class="keyword">]</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="832" href="#832">832</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
+    <tr class=" d-flex"><td  class="col-1 text-right"><a id="833" href="#833">833</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
+    <tr class="covered-by-large-tests popin d-flex"><td  data-title="1 test covers line 834" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;TabularTest::testAppendCol&lt;/li&gt;&lt;/ul&gt;" data-placement="top" data-html="true" class="col-1 text-right"><a id="834" href="#834">834</a></td><td class="col-11 codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">return</span><span class="default">&nbsp;</span><span class="default">$result</span><span class="keyword">;</span></td></tr>
+    <tr class="warning d-flex"><td  class="col-1 text-right"><a id="835" href="#835">835</a></td><td class="col-11 codeLine"><span class="keyword">}</span></td></tr>
 
 </tbody>
 </table>
@@ -1352,7 +1399,7 @@
     <h4>Legend</h4>
     <p><span class="success"><strong>Executed</strong></span><span class="danger"><strong>Not Executed</strong></span><span class="warning"><strong>Dead Code</strong></span></p>
     <p>
-     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.1.4</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.3</a> with <a href="https://xdebug.org/">Xdebug 2.9.2</a> and <a href="https://phpunit.de/">PHPUnit 9.3.7</a> at Fri Aug 21 13:31:56 UTC 2020.</small>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.1.4</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.3</a> with <a href="https://xdebug.org/">Xdebug 2.9.2</a> and <a href="https://phpunit.de/">PHPUnit 9.3.7</a> at Fri Aug 21 13:48:34 UTC 2020.</small>
     </p>
     <a title="Back to the top" id="toplink" href="#">
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M12 11L6 5l-6 6h12z"/></svg>

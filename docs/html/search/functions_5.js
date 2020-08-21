@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['read_5fcsv_43',['read_csv',['../namespaceptk_1_1tabular.html#ad922f7b58f141a16581be1193dab1107',1,'ptk::tabular']]],
-  ['reorder_5fcols_44',['reorder_cols',['../namespaceptk_1_1tabular.html#a1877865d947b369e7e0709f02ddd4b40',1,'ptk::tabular']]]
+  ['map_5fcols_41',['map_cols',['../namespaceptk_1_1tabular.html#a624392e3f54dad2fe32e2da97956df27',1,'ptk::tabular']]],
+  ['map_5frows_42',['map_rows',['../namespaceptk_1_1tabular.html#a158853363345988199a3ee040253a6f9',1,'ptk::tabular']]],
+  ['merge_5fcols_43',['merge_cols',['../namespaceptk_1_1tabular.html#adf1bee54d4bc8dc78f840dc27f0ae22c',1,'ptk::tabular']]],
+  ['merge_5flines_44',['merge_lines',['../namespaceptk_1_1tabular.html#a0f79546f05ee2d45b08565ab9a00f495',1,'ptk::tabular']]]
 ];

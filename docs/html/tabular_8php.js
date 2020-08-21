@@ -1,5 +1,6 @@
 var tabular_8php =
 [
+    [ "append_col", "tabular_8php.html#a01765e80c12a5fbf99de9acc12e087d1", null ],
     [ "check_structure", "tabular_8php.html#a061cf0e67fb11b0e7dea8effae7ed5b3", null ],
     [ "col_names", "tabular_8php.html#a77d6a4b1e2ccf9bccc413da6b9153552", null ],
     [ "del_cols", "tabular_8php.html#af4623dfe4907e3b8a25165c0091bf8e6", null ],

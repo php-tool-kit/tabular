@@ -807,3 +807,29 @@ function reorder_cols(array $data, string ...$cols): array
     
     return $result;
 }
+
+/**
+ * Adiciona uma coluna de dados ao final do data frame quando os dados não estão no formato de dataframe.
+ *
+ * @param array<mixed> $data
+ * @param string $colName
+ * @param array<mixed> $colData Os dados no formato de array unidimensional com a mesma quantidade de linhas que
+ * o data frame.
+ * @return array<mixed>
+ */
+function append_col(array $data, string $colName, array $colData): array
+{
+    $linesDF = sizeof($data);
+    $linesNew = sizeof($colData);
+    $result = [];
+    
+    if ($linesDF !== $linesNew) {
+        throw new Exception("Os dados tem $linesNew linhas, mas o data frame tem $linesDF linhas.");
+    }
+    
+    foreach ($data as $index => $line) {
+        $result[$index] = array_merge($line, [$colName => $colData[$index]]);
+    }
+    
+    return $result;
+}

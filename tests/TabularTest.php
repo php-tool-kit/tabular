@@ -1,6 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use function ptk\tabular\append_col;
 use function ptk\tabular\check_structure;
 use function ptk\tabular\col_names;
 use function ptk\tabular\del_cols;
@@ -856,5 +857,37 @@ class TabularTest extends TestCase
     {
         $this->expectException(Exception::class);
         reorder_cols($this->sample1, 'name', 'age', 'unknow');
+    }
+    
+    public function testAppendCol()
+    {
+        $expected = [
+            [
+                'id' => 1,
+                'name' => 'John',
+                'age' => 39,
+                'year' => 1981
+            ],
+            [
+                'id' => 2,
+                'name' => 'Mary',
+                'age' => 37,
+                'year' => 1983
+            ],
+            [
+                'id' => 3,
+                'name' => 'Paul',
+                'age' => 12,
+                'year' => 2011
+            ]
+        ];
+        
+        $this->assertEquals($expected, append_col($this->sample1, 'year', [1981, 1983, 2011]));
+    }
+    
+    public function testAppendColFail()
+    {
+        $this->expectException(Exception::class);
+        append_col($this->sample1, 'year', [1981, 1983]);
     }
 }

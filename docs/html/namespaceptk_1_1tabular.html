@@ -135,12 +135,58 @@ Funções</h2></td></tr>
 <tr class="separator:ac4fc613a8507ab931a662bbdb2988587"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1877865d947b369e7e0709f02ddd4b40"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceptk_1_1tabular.html#a1877865d947b369e7e0709f02ddd4b40">reorder_cols</a> (array $data, string ... $cols)</td></tr>
 <tr class="separator:a1877865d947b369e7e0709f02ddd4b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01765e80c12a5fbf99de9acc12e087d1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceptk_1_1tabular.html#a01765e80c12a5fbf99de9acc12e087d1">append_col</a> (array $data, string $colName, array $colData)</td></tr>
+<tr class="separator:a01765e80c12a5fbf99de9acc12e087d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
 <div class="textblock"><p>Biblioteca para manipulação de dados tabulares, oferecendo funções complementares às funções de array da biblioteca padrão do PHP.</p>
 <p>Dados tabulares são arrays multidimensionais estruturados em linhas-&gt;colunas:</p>
 <p>$data = [ [//linha 1 'coluna1' =&gt; 1, 'coluna2' =&gt; 'algum texto', 'coluna3' =&gt; true ], [//linha 2 'coluna1' =&gt; 2, 'coluna2' =&gt; 'algum texto', 'coluna3' =&gt; true ], [//linha 3 'coluna1' =&gt; 3, 'coluna2' =&gt; 'algum texto', 'coluna3' =&gt; false ] </p>
 </div><h2 class="groupheader">Funções</h2>
+<a id="a01765e80c12a5fbf99de9acc12e087d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01765e80c12a5fbf99de9acc12e087d1">&#9670;&nbsp;</a></span>append_col()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ptk\tabular\append_col </td>
+          <td>(</td>
+          <td class="paramtype">array&#160;</td>
+          <td class="paramname"><em>$data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>$colName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array&#160;</td>
+          <td class="paramname"><em>$colData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Adiciona uma coluna de dados ao final do data frame quando os dados não estão no formato de dataframe.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype"></td><td class="paramname">array&lt;mixed&gt;</td><td>$data </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$colName</td><td></td></tr>
+    <tr><td class="paramtype"></td><td class="paramname">array&lt;mixed&gt;</td><td>$colData Os dados no formato de array unidimensional com a mesma quantidade de linhas que o data frame. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>array&lt;mixed&gt; </dd></dl>
+
+</div>
+</div>
 <a id="a061cf0e67fb11b0e7dea8effae7ed5b3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a061cf0e67fb11b0e7dea8effae7ed5b3">&#9670;&nbsp;</a></span>check_structure()</h2>
 
