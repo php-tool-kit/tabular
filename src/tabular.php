@@ -662,6 +662,13 @@ function duplicates(array $data, bool $types = true): array
  */
 function map_rows(array $data, callable $map): array
 {
+    $result = [];
+    
+    foreach ($data as $index => $line) {
+        $result[$index] = $map($line);
+    }
+    
+    return $result;
 }
 
 /**

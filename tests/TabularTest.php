@@ -11,6 +11,8 @@ use function ptk\tabular\get_col_range;
 use function ptk\tabular\get_cols;
 use function ptk\tabular\get_line_range;
 use function ptk\tabular\get_lines;
+use function ptk\tabular\map_cols;
+use function ptk\tabular\map_rows;
 use function ptk\tabular\merge_cols;
 use function ptk\tabular\merge_lines;
 use function ptk\tabular\read_csv;
@@ -720,7 +722,7 @@ class TabularTest extends TestCase
         ];
         $this->assertEquals([['total' => 11], ['total' => 22], ['total' => 33]], sum_lines($data, 'total', 'f1', 'f2'));
     }
-    
+
     public function testSumLinesFail()
     {
         $data = [
@@ -739,5 +741,91 @@ class TabularTest extends TestCase
         ];
         $this->expectException(Exception::class);
         sum_lines($data, 'total', 'f1', 'unknow');
+    }
+
+    public function testMapRows()
+    {
+        $mapfn = function($line) {
+            $info = "My name is {$line['name']} and I am {$line['age']} years old.";
+            return array_merge($line, ['info' => $info]);
+        };
+
+        $expected = [
+            [
+                'id' => 1,
+                'name' => 'John',
+                'age' => 39,
+                'info' => 'My name is John and I am 39 years old.'
+            ],
+            [
+                'id' => 2,
+                'name' => 'Mary',
+                'age' => 37,
+                'info' => 'My name is Mary and I am 37 years old.'
+            ],
+            [
+                'id' => 3,
+                'name' => 'Paul',
+                'age' => 12,
+                'info' => 'My name is Paul and I am 12 years old.'
+            ]
+        ];
+
+        $this->assertEquals($expected, map_rows($this->sample1, $mapfn));
+    }
+    
+    public function testMapCols()
+    {
+        $mapfn = function($cell) {
+            return strtoupper($cell);
+        };
+
+        $expected = [
+            [
+                'id' => 1,
+                'name' => 'JOHN',
+                'age' => 39
+            ],
+            [
+                'id' => 2,
+                'name' => 'MARY',
+                'age' => 37
+            ],
+            [
+                'id' => 3,
+                'name' => 'PAUL',
+                'age' => 12
+            ]
+        ];
+
+        $this->assertEquals($expected, map_cols($this->sample1, $mapfn, 'name'));
+    }
+    
+    public function testMapColsFail()
+    {
+        $mapfn = function($cell) {
+            return strtoupper($cell);
+        };
+
+        $expected = [
+            [
+                'id' => 1,
+                'name' => 'JOHN',
+                'age' => 39
+            ],
+            [
+                'id' => 2,
+                'name' => 'MARY',
+                'age' => 37
+            ],
+            [
+                'id' => 3,
+                'name' => 'PAUL',
+                'age' => 12
+            ]
+        ];
+
+        $this->expectException(Exception::class);
+        map_cols($this->sample1, $mapfn, 'unknow');
     }
 }
