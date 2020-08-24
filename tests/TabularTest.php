@@ -18,6 +18,7 @@ use function ptk\tabular\merge_cols;
 use function ptk\tabular\merge_lines;
 use function ptk\tabular\read_csv;
 use function ptk\tabular\reorder_cols;
+use function ptk\tabular\search;
 use function ptk\tabular\seek;
 use function ptk\tabular\set_col_names;
 use function ptk\tabular\sort;
@@ -889,5 +890,22 @@ class TabularTest extends TestCase
     {
         $this->expectException(Exception::class);
         append_col($this->sample1, 'year', [1981, 1983]);
+    }
+    
+    public function testSearch()
+    {
+        $this->assertEquals([
+            1 => [
+                'id' => 2,
+                'name' => 'Mary',
+                'age' => 37
+            ]
+        ], search($this->sample1, '/mary/i', 'name'));
+    }
+    
+    public function testSearchFail()
+    {
+        $this->expectException(Exception::class);
+        search($this->sample1, '/mary/i', 'unknow');
     }
 }

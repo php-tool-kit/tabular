@@ -594,6 +594,7 @@ function write_csv($handle, array $data, string $sep, bool $head = true): void
  * que geram retorno true terão seus índices incluídos no retorno.
  * @return array<int>
  * @see filter()
+ * @see ptk\tabular\seek()
  */
 function seek(array $data, callable $filter): array
 {
@@ -658,7 +659,6 @@ function duplicates(array $data, bool $types = true): array
  * @param callable $map Uma função que deve receber um array representando a
  * linha e deve devolver outro array representando a linha processada.
  * @return array<array>
- * @todo Implementar
  */
 function map_rows(array $data, callable $map): array
 {
@@ -829,6 +829,35 @@ function append_col(array $data, string $colName, array $colData): array
     
     foreach ($data as $index => $line) {
         $result[$index] = array_merge($line, [$colName => $colData[$index]]);
+    }
+    
+    return $result;
+}
+
+/**
+ * Busca as linhas onde os valores das colunas em $colNames casam com a expressão em $regex.
+ *
+ * @param array<mixed> $data
+ * @param string $regex
+ * @param string $colNames
+ * @return array<mixed>
+ * @throws Exception
+ * @see ptk\tabular\seek()
+ * @see ptk\tabular\filter()
+ */
+function search(array $data, string $regex, string ...$colNames): array
+{
+    $result = [];
+    
+    foreach ($data as $index => $line) {
+        foreach ($colNames as $colName) {
+            if (!in_array($colName, col_names($data))) {
+                throw new Exception("A coluna $colName não é uma coluna válida.");
+            }
+            if (preg_match($regex, $line[$colName]) === 1) {
+                $result[$index] = $line;
+            }
+        }
     }
     
     return $result;
